@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
@@ -11,47 +5,32 @@ import {
   Text,
   View
 } from 'react-native';
+import style from './src/styles'
+import { Button } from 'react-native-elements'
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+// COMPONENTS //
 
-export default class App extends Component<{}> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
-    );
+import Header from './src/components/Header'
+import SearchBar from './src/components/SearchBar'
+import FavoriteList from './src/components/FavoriteList'
+
+export default class App extends Component {
+    render() {
+      return (
+        <View style={style.logInView} >
+          <SearchBar />
+            <Header />
+            <Button
+              large
+              icon={{name: 'google', type: 'font-awesome'}}
+              title='Log in with google'
+              style={style.shadow}
+              backgroundColor='rgba(71, 15, 237, 0.64)'
+              borderRadius={20}
+              />
+
+        </View>
+      )
+
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
