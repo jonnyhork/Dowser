@@ -5,6 +5,8 @@ const styles = StyleSheet.create({
   logInView: {
     flex: 1,
     backgroundColor: '#4c93aa',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   container: {
     flex: 1,

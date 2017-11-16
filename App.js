@@ -6,12 +6,13 @@ import {
   View
 } from 'react-native';
 import style from './src/styles'
-import { Button } from 'react-native-elements'
+
 
 // COMPONENTS //
 import Header from './src/components/Header'
 import SearchBar from './src/components/SearchBar'
 import FavoriteList from './src/components/FavoriteList'
+import LoginPage from './src/components/LoginPage'
 
 export default class App extends Component {
 
@@ -27,8 +28,8 @@ export default class App extends Component {
   async componentDidMount() {
     await navigator.geolocation.getCurrentPosition( position => {
       // console.log('position****', position.coords)
-      let latitude = position.coords.latitude
-      let longitude = position.coords.longitude
+      const latitude = position.coords.latitude
+      const longitude = position.coords.longitude
 
       this.setState({
         latitude,
@@ -42,16 +43,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={style.logInView} >
-        <SearchBar />
-          <Header />
-          <Button
-            large
-            icon={{name: 'google', type: 'font-awesome'}}
-            title='Log in with google'
-            backgroundColor='rgba(71, 15, 237, 0.64)'
-            borderRadius={20}
-            />
-
+        <LoginPage />
       </View>
     )
   }
