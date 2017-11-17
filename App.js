@@ -10,7 +10,7 @@ import style from './src/styles'
 
 // COMPONENTS //
 // import UserView from './src/views/UserView'
-// import UserView from './src/views/UserView'
+import UserView from './src/views/UserView'
 import Router from './src/Router'
 
 export default class App extends Component {
@@ -43,6 +43,7 @@ export default class App extends Component {
     return (
       <View >
         <Router />
+        
       </View>
     )
   }
