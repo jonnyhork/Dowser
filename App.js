@@ -5,14 +5,11 @@ import {
   Text,
   View
 } from 'react-native';
+
+// STYLESHEET //
 import style from './src/styles'
-import {Scene, Router} from 'react-native-router-flux'
-
-
-// COMPONENTS //
-import LoginView from './src/views/LoginView'
-import UserView from './src/views/UserView'
-// import Router from './src/Router'
+// Imports all the views from the Router.js //
+import Router from './src/Router'
 
 export default class App extends Component {
 
@@ -42,12 +39,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <Router>
-        <Scene key="root">
-              <Scene key="LoginView" component={LoginView} hideNavBar initial/>
-              <Scene key='UserView' component={UserView} title='UserView'/>
-         </Scene>
-      </Router>
+      <Router />
     )
   }
 }

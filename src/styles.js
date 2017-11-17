@@ -29,6 +29,10 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     paddingTop: 20,
+  },
+  buttonView: {
+    margin:50,
+    flex:1
   }
 })
 

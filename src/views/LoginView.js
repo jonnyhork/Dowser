@@ -11,7 +11,7 @@ const LoginView = () => {
   return (
     <View style={style.container}>
       <Logo />
-      <View style={styles.buttonView}>
+      <View style={style.buttonView}>
         <Button
           large
           icon={{name: 'google', type: 'font-awesome'}}
@@ -26,17 +26,3 @@ const LoginView = () => {
 }
 
 export default LoginView
-
-
-const styles = {
-  logInView: {
-    flex: 1,
-    backgroundColor: '#4c93aa',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  buttonView: {
-    margin:50,
-    flex:1
-  }
-}
