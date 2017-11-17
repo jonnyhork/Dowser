@@ -2,13 +2,13 @@ import React, { Component, PropTypes } from 'react'
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
-  logInView: {
+  container: {
     flex: 1,
     backgroundColor: '#302B2F',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  container: {
+  logInView: {
     flex: 1,
     backgroundColor: '#302B2F',
     alignItems: 'center',
@@ -24,6 +24,17 @@ const styles = StyleSheet.create({
   },
   taglineText: {
     color: '#ECEFD8'
+  },
+  userViewContainer: {
+    flex: 1,
+    backgroundColor: '#302B2F'
+  },
+  userProfileView: {
+    padding: 20,
+    alignItems: 'center',
+  },
+  userNameText: {
+    fontSize: 25,
   },
   shadow: {
     shadowColor: '#000',

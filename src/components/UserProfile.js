@@ -8,21 +8,18 @@ const UserProfile = () => {
 
   return (
     <View>
-      <View>
+      <View style={style.userProfileView}>
         <Avatar
-          large
+          xlarge
           rounded
-          source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/kfriedson/128.jpg"}}
+          source={{uri: "https://lh6.googleusercontent.com/-LRKSIKiP2V8/AAAAAAAAAAI/AAAAAAAALpk/7sOHE2cyZS0/photo.jpg?sz=50"}}
           onPress={() => console.log("Works!")}
           activeOpacity={0.7}
         />
-      </View>
-      <View>
-        <Text>user name</Text>
+      <Text style={style.userNameText}>user name</Text>
       </View>
     </View>
   )
-
 }
 
 export default UserProfile
