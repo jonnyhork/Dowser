@@ -1,13 +1,16 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 import { Button } from 'react-native-elements'
+import { Actions } from 'react-native-router-flux'
+// STYLESHEET //
 import style from '../styles'
+
+// COMPONENTS //
 import UserProfile from '../components/UserProfile'
 import FavoriteList from '../components/FavoriteList'
-
 import SearchBar from '../components/SearchBar'
 
-import { Actions } from 'react-native-router-flux'
+
 
 
 const UserView = () => {
@@ -15,8 +18,6 @@ const UserView = () => {
   return (
 
     <View style={style.userViewContainer}>
-
-    <View>
 
       <View>
         <UserProfile />
