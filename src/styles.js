@@ -4,23 +4,26 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
   logInView: {
     flex: 1,
-    backgroundColor: '#4c93aa',
+    backgroundColor: '#302B2F',
     alignItems: 'center',
     justifyContent: 'center',
   },
   container: {
     flex: 1,
-    backgroundColor: '#4c93aa',
+    backgroundColor: '#302B2F',
     alignItems: 'center',
     justifyContent: 'center',
   },
   logoView: {
-    // flex:1,
     padding: 20,
     alignItems: 'center',
   },
   logoText: {
     fontSize: 50,
+    color: '#C46D3B',
+  },
+  taglineText: {
+    color: '#ECEFD8'
   },
   shadow: {
     shadowColor: '#000',
@@ -31,7 +34,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   buttonView: {
-    flex:1
+    margin:50,
   }
 })
 
