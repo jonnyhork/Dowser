@@ -9,16 +9,18 @@ import Logo from '../components/Logo'
 const LoginView = () => {
 
   return (
-    <View >
+    <View style={style.container}>
       <Logo />
-      <Button
-        large
-        icon={{name: 'google', type: 'font-awesome'}}
-        title='Log in with google'
-        backgroundColor='rgba(71, 15, 237, 0.64)'
-        borderRadius={20}
-        onPress={() => Actions.UserView()}
-        />
+      <View style={styles.buttonView}>
+        <Button
+          large
+          icon={{name: 'google', type: 'font-awesome'}}
+          title='Log in with google'
+          backgroundColor='rgba(71, 15, 237, 0.64)'
+          borderRadius={20}
+          onPress={() => Actions.UserView()}
+          />
+      </View>
     </View>
   )
 }
@@ -32,5 +34,9 @@ const styles = {
     backgroundColor: '#4c93aa',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  buttonView: {
+    margin:50,
+    flex:1
   }
 }

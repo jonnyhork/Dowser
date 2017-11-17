@@ -44,7 +44,8 @@ export default class App extends Component {
     return (
       <Router>
         <Scene key="root">
-              <Scene key="LoginView" component={LoginView} initial/>
+              <Scene key="LoginView" component={LoginView} hideNavBar initial/>
+              <Scene key='UserView' component={UserView} title='UserView'/>
          </Scene>
       </Router>
     )
