@@ -4,6 +4,7 @@ import { Button } from 'react-native-elements'
 import style from '../styles'
 import UserProfile from '../components/UserProfile'
 import FavoriteList from '../components/FavoriteList'
+import SearchBar from '../components/SearchBar'
 
 const UserView = () => {
 
@@ -12,6 +13,10 @@ const UserView = () => {
 
       <View>
         <UserProfile />
+      </View>
+      
+      <View>
+        <SearchBar />
       </View>
 
       <View>

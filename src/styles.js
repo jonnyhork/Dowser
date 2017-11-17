@@ -29,12 +29,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#302B2F'
   },
-  userProfileView: {
-    padding: 20,
+  userProfile: {
+    paddingTop: 20,
     alignItems: 'center',
   },
   userNameText: {
     fontSize: 25,
+    color: '#C46D3B'
   },
   shadow: {
     shadowColor: '#000',

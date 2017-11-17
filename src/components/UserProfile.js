@@ -8,9 +8,9 @@ const UserProfile = () => {
 
   return (
     <View>
-      <View style={style.userProfileView}>
+      <View style={style.userProfile}>
         <Avatar
-          xlarge
+          large
           rounded
           source={{uri: "https://lh6.googleusercontent.com/-LRKSIKiP2V8/AAAAAAAAAAI/AAAAAAAALpk/7sOHE2cyZS0/photo.jpg?sz=50"}}
           onPress={() => console.log("Works!")}
