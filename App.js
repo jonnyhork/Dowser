@@ -9,8 +9,8 @@ import style from './src/styles'
 
 
 // COMPONENTS //
-import SearchBar from './src/components/SearchBar'
-import FavoriteList from './src/components/FavoriteList'
+// import UserView from './src/views/UserView'
+// import UserView from './src/views/UserView'
 import Router from './src/Router'
 
 export default class App extends Component {

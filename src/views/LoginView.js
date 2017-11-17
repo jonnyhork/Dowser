@@ -1,14 +1,15 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 import style from '../styles'
-import { Actions, Button } from 'react-native-elements'
+import { Button } from 'react-native-elements'
+import { Actions } from 'react-native-router-flux'
 
 import Logo from '../components/Logo'
 
 const LoginView = () => {
 
   return (
-    <View style={style.logoView}>
+    <View >
       <Logo />
       <Button
         large
@@ -23,3 +24,13 @@ const LoginView = () => {
 }
 
 export default LoginView
+
+
+const styles = {
+  logInView: {
+    flex: 1,
+    backgroundColor: '#4c93aa',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
+}
