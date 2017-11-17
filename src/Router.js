@@ -4,6 +4,7 @@ import {Scene, Router, Stack} from 'react-native-router-flux'
 // VIEWS //
 import LoginView from './views/LoginView'
 import UserView from './views/UserView'
+import MapView from './views/MapView'
 
 const RouterComponent = () => {
 
@@ -17,6 +18,7 @@ const RouterComponent = () => {
 
        <Scene key="main">
          <Scene key='UserView' component={UserView} title='UserView'/>
+         <Scene key='MapView' component={MapView} title='MapView' hideNavBar/>
        </Scene>
 
       </Scene>
