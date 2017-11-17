@@ -18,7 +18,7 @@ const LoginView = () => {
           title='Log in with google'
           backgroundColor='rgba(71, 15, 237, 0.64)'
           borderRadius={20}
-          onPress={() => Actions.UserView()}
+          onPress={() => Actions.main()}
           />
       </View>
     </View>

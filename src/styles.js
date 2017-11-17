@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   logoView: {
-    flex:1,
+    // flex:1,
     padding: 20,
     alignItems: 'center',
   },
@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   buttonView: {
-    margin:50,
     flex:1
   }
 })
