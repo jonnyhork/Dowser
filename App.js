@@ -6,12 +6,13 @@ import {
   View
 } from 'react-native';
 import style from './src/styles'
+import {Scene, Router} from 'react-native-router-flux'
 
 
 // COMPONENTS //
-// import UserView from './src/views/UserView'
+import LoginView from './src/views/LoginView'
 import UserView from './src/views/UserView'
-import Router from './src/Router'
+// import Router from './src/Router'
 
 export default class App extends Component {
 
@@ -41,10 +42,11 @@ export default class App extends Component {
 
   render() {
     return (
-      <View >
-        <Router />
-        
-      </View>
+      <Router>
+        <Scene key="root">
+              <Scene key="LoginView" component={LoginView} initial/>
+         </Scene>
+      </Router>
     )
   }
 }

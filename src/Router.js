@@ -6,10 +6,9 @@ import UserView from './views/UserView'
 const RouterComponent = () => {
 
  return (
-   <Router sceneStyle={{padding:40}}>
+   <Router>
      <Scene key="root">
            <Scene key="LoginView" component={LoginView} initial/>
-           <Scene key="UserView" component={UserView} title="UserView" />
       </Scene>
    </Router>
  )
