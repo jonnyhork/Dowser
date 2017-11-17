@@ -14,11 +14,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  headerView: {
+  logoView: {
     padding: 20,
     alignItems: 'center',
   },
-  headerText: {
+  logoText: {
     fontSize: 50,
   },
   shadow: {

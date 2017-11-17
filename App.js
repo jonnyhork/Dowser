@@ -12,7 +12,6 @@ import style from './src/styles'
 import Header from './src/components/Header'
 import SearchBar from './src/components/SearchBar'
 import FavoriteList from './src/components/FavoriteList'
-import LoginPage from './src/components/LoginPage'
 import Router from './src/Router'
 
 export default class App extends Component {
