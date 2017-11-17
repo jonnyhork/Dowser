@@ -1,5 +1,5 @@
 import React from 'react'
-import import { Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import UserProfile from '../components/UserProfile'
 import FavoriteList from '../components/FavoriteList'
 

@@ -9,7 +9,6 @@ import style from './src/styles'
 
 
 // COMPONENTS //
-import Header from './src/components/Header'
 import SearchBar from './src/components/SearchBar'
 import FavoriteList from './src/components/FavoriteList'
 import Router from './src/Router'
@@ -42,7 +41,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={style.logInView} >
+      <View >
         <Router />
       </View>
     )
