@@ -6,8 +6,6 @@ import {
   View
 } from 'react-native';
 
-// STYLESHEET //
-import style from './src/styles'
 // Imports all the views from the Router.js //
 import Router from './src/Router'
 

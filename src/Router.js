@@ -1,5 +1,5 @@
 import React from 'react'
-import {Scene, Router, Stack} from 'react-native-router-flux'
+import {Scene, Router} from 'react-native-router-flux'
 
 // VIEWS //
 import LoginView from './views/LoginView'
