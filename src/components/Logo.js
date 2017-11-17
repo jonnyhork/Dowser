@@ -7,8 +7,8 @@ const Logo = () => {
 
   return (
     <View style={style.logoView}>
-      <Text style={style.logoText}>Dowser</Text>
-      <Text>Tagline Here</Text>
+      <Text style={style.logoText}>dowser</Text>
+      <Text style={style.taglineText}>tagline here</Text>
     </View>
   )
 }
