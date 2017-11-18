@@ -1,5 +1,5 @@
-import React from 'react'
-import { Text, View } from 'react-native'
+import React, { Component } from 'react'
+import { ActivityIndicator, Text, View } from 'react-native'
 import { Button } from 'react-native-elements'
 import { Actions } from 'react-native-router-flux'
 // STYLESHEET //
@@ -13,37 +13,46 @@ import SearchBar from '../components/SearchBar'
 
 
 
-const UserView = () => {
+class UserView extends Component {
 
-  return (
+  render() {
+    if (this.props.currentuser === undefined) {
+      return (
+        <View>
+          <ActivityIndicator />
+        </View>
+      )
+    }
+    console.log('currentuser in UserView', this.props.currentuser)
+    return (
 
-    <View style={style.userViewContainer}>
+      <View style={style.userViewContainer}>
 
-      <View>
-        <UserProfile />
+        <View>
+          <UserProfile currentuser={this.props.currentuser} />
+        </View>
+
+        <View>
+          <SearchBar />
+        </View>
+
+        <View>
+          <FavoriteList />
+        </View>
+        <View style={style.buttonView}>
+          <Button
+            large
+            icon={{name: 'google', type: 'font-awesome'}}
+            title='Log in with google'
+            backgroundColor='rgba(71, 15, 237, 0.64)'
+            borderRadius={20}
+            onPress={() => Actions.MapView()}
+            />
+        </View>
+
       </View>
-
-      <View>
-        <SearchBar />
-      </View>
-
-      <View>
-        <FavoriteList />
-      </View>
-      <View style={style.buttonView}>
-        <Button
-          large
-          icon={{name: 'google', type: 'font-awesome'}}
-          title='Log in with google'
-          backgroundColor='rgba(71, 15, 237, 0.64)'
-          borderRadius={20}
-          onPress={() => Actions.MapView()}
-          />
-      </View>
-
-    </View>
-  )
-
+    )
+  }
 }
 
 export default UserView

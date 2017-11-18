@@ -1,25 +1,35 @@
-import React from 'react'
-import {View, Text, Image} from 'react-native'
+import React, { Component } from 'react'
+import {ActivityIndicator, View, Text, Image} from 'react-native'
 import style from '../styles'
 import { Avatar } from 'react-native-elements'
 
 
-const UserProfile = () => {
+class UserProfile extends Component {
 
-  return (
-    <View>
-      <View style={style.userProfile}>
-        <Avatar
-          large
-          rounded
-          source={{uri: "https://lh6.googleusercontent.com/-LRKSIKiP2V8/AAAAAAAAAAI/AAAAAAAALpk/7sOHE2cyZS0/photo.jpg?sz=50"}}
-          onPress={() => console.log("Works!")}
-          activeOpacity={0.7}
-        />
-      <Text style={style.userNameText}>user name</Text>
+  render() {
+    if (this.props.currentuser === undefined) {
+      return (
+        <View>
+          <ActivityIndicator />
+        </View>
+      )
+    }
+    console.log('CU in profile comp', this.props.currentuser)
+    return (
+      <View>
+        <View style={style.userProfile}>
+          <Avatar
+            large
+            rounded
+            source={ {uri: this.props.currentuser.photo} }
+            onPress={() => console.log("Works!")}
+            activeOpacity={0.7}
+          />
+        <Text style={style.userNameText}>{this.props.currentuser.name}</Text>
+        </View>
       </View>
-    </View>
-  )
+    )
+  }
 }
 
 export default UserProfile
