@@ -12,7 +12,7 @@ export default class MapView extends Component<{}> {
 
   renderAnnotations () {
     return (
-      <Mapbox.PointAnnotation
+      <MapboxGL.PointAnnotation
         key='pointAnnotation'
         id='pointAnnotation'
         coordinate={[-105.28, 40.01]}>
@@ -20,8 +20,8 @@ export default class MapView extends Component<{}> {
         <View style={styles.annotationContainer}>
           <View style={styles.annotationFill} />
         </View>
-        <Mapbox.Callout title='Look! An annotation!' />
-      </Mapbox.PointAnnotation>
+        <MapboxGL.Callout title='Look! An annotation!' />
+      </MapboxGL.PointAnnotation>
     )
   }
 
@@ -51,18 +51,17 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   annotationContainer: {
-    width: 30,
-    height: 30,
+    width: 40,
+    height: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'white',
-    borderRadius: 15,
+    borderRadius: 30,
   },
   annotationFill: {
-    width: 30,
-    height: 30,
-    borderRadius: 15,
-    backgroundColor: 'orange',
+    width: 40,
+    height: 40,
+    borderRadius: 30,
+    backgroundColor: 'rgba(196,109,59, 0.5)',
     transform: [{ scale: 0.6 }],
   }
 });
