@@ -33,10 +33,12 @@ export default class App extends Component {
         mapBoxLocation:[Number(longitude.toFixed(2)), Number(latitude.toFixed(2))]
       })
       // console.log("***this state:",this.state)
-
     })
-
   }
+
+  async callFourSquareAPI (searchTerm) {
+      const response = await fetch()
+    }
 
   render() {
     return (
