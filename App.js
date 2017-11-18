@@ -5,6 +5,7 @@ import {
   Text,
   View
 } from 'react-native';
+import {Actions} from 'react-native-router-flux'
 
 // Imports all the views from the Router.js //
 import Router from './src/Router'
@@ -31,8 +32,10 @@ export default class App extends Component {
         longitude,
         mapBoxLocation:[Number(longitude.toFixed(2)), Number(latitude.toFixed(2))]
       })
-      console.log("***this state:",this.state)
+      // console.log("***this state:",this.state)
+
     })
+
   }
 
   render() {
