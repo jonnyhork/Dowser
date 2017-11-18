@@ -49,6 +49,7 @@ export default class App extends Component {
       console.log("***this state:",this.state)
       Actions.LoginView({loginWithGoogle: this.loginWithGoogle.bind(this)})
     })
+
   }
 
   loginWithGoogle = () => {

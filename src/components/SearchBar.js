@@ -14,10 +14,10 @@ class Search_Bar extends Component {
   }
 
   onSearchInputChange(searchTerm) {
+    console.log("Search term is:", this.state.searchTerm)
     this.setState({
       searchTerm
     })
-    console.log("Search term is:", this.state.searchTerm)
   }
 
 
@@ -25,11 +25,12 @@ class Search_Bar extends Component {
     return (
       <View style={style.searchBar}>
         <SearchBar
+        value={this.state.searchTerm}
         round
         onChangeText={ text => this.onSearchInputChange(text)}
         onClearText={()=>console.log('cleared the text')}
         placeholder='coffee, music, art...' />
-    </View>
+      </View>
     )
   }
 
