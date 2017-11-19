@@ -10,19 +10,42 @@ MapboxGL.setAccessToken('pk.eyJ1IjoiY3BsZXZhayIsImEiOiJjamExZG51OW45ZG53MnFzNGdz
 
 export default class MapView extends Component {
 
+
+
+  renderAnnotations () {
+    return (
+      <MapboxGL.PointAnnotation
+        // key={this.props.name}
+        // id={this.props.name}
+        // title={this.props.name}
+        key='PointAnnotation'
+        id='PointAnnotation'
+        coordinate={this.props.mapBoxLocation}>
+
+        <View style={styles.annotationContainer}>
+          <View style={styles.annotationFill} />
+        </View>
+        <MapboxGL.Callout title='Look! An annotation!' />
+      </MapboxGL.PointAnnotation>
+    )
+  }
+
   render() {
-    console.log("MAP VIEW PROPS:", this.props.appState)
+    console.log('this is the location', this.props.mapBoxLocation)
     return (
       <View style={styles.mapContainer}>
         <MapboxGL.MapView
             styleURL={MapboxGL.StyleURL.Dark}
             zoomLevel={12}
-            centerCoordinate={[-105.28, 40.01]}
+            centerCoordinate={this.props.mapBoxLocation ? this.props.mapBoxLocation : [-105.28, 40.01]}
             style={styles.mapContainer}
             showUserLocation={true}
             animated={true}
             zoomEnabled={true}
             scrollEnabled={true}>
+
+          {this.renderAnnotations()}
+
         </MapboxGL.MapView>
       </View>
     )
@@ -33,4 +56,18 @@ const styles = StyleSheet.create({
   mapContainer: {
     flex: 1,
   },
-})
+  annotationContainer: {
+    width: 100,
+    height: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 70,
+  },
+  annotationFill: {
+    width: 100,
+    height: 100,
+    borderRadius: 70,
+    backgroundColor: 'rgba(196,109,59, 0.5)',
+    transform: [{ scale: 0.6 }],
+  }
+});
