@@ -4,13 +4,12 @@ import style from '../styles'
 import { Button } from 'react-native-elements'
 import { Actions } from 'react-native-router-flux'
 
+// COMPONENTS //
 import Logo from '../components/Logo'
 
 class LoginView extends Component {
 
-
-  render(){
-
+  render() {
     return (
       <View style={style.container}>
         <Logo />
@@ -21,13 +20,12 @@ class LoginView extends Component {
             title='Log in with google'
             backgroundColor='rgba(71, 15, 237, 0.64)'
             borderRadius={20}
-            onPress={() => Actions.main()}
+            onPress={() => this.props.loginWithGoogle()}
             />
         </View>
       </View>
     )
   }
-
 }
 
 export default LoginView
