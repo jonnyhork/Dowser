@@ -4,6 +4,7 @@ import style from '../styles'
 import { Button } from 'react-native-elements'
 import { Actions } from 'react-native-router-flux'
 
+// COMPONENTS //
 import Logo from '../components/Logo'
 
 class LoginView extends Component {

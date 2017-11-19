@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { Text, View, FlatList } from 'react-native'
 import style from '../styles'
 import { List, ListItem } from 'react-native-elements'
-import FavoriteItem from './FavoriteItem'
 
+// COMPONENTS //
+import FavoriteItem from './FavoriteItem'
 
 const favorites = [
   {
@@ -79,6 +80,5 @@ class FavoriteList extends Component {
     )
   }
 }
-
 
 export default FavoriteList

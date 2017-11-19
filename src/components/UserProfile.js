@@ -14,18 +14,19 @@ class UserProfile extends Component {
         </View>
       )
     }
-    console.log('CU in profile comp', this.props.currentuser)
+
     return (
       <View>
         <View style={style.userProfile}>
           <Avatar
-            large
+            xlarge
             rounded
             source={ {uri: this.props.currentuser.photo} }
-            onPress={() => console.log("Works!")}
             activeOpacity={0.7}
           />
-        <Text style={style.userNameText}>{this.props.currentuser.name}</Text>
+          <Text style={style.userNameText}>
+            {this.props.currentuser.name}
+          </Text>
         </View>
       </View>
     )

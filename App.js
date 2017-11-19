@@ -62,23 +62,16 @@ export default class App extends Component {
   handleOpenURL = async ({ url }) => {
     // Extract stringified user string out of the URL
     const [, user_string] = url.match(/user=([^#]+)/)
-
+    // SET STATE WITH CURRENT USER INFO
     this.setState({
       // Decode the user string and parse it into JSON
       currentuser: JSON.parse(decodeURI(user_string)),
       loading: false
     }, () => {
+      // Send oAuth response to UserView a props
       Actions.UserView({ currentuser: this.state.currentuser })
     })
-
-    console.log('currentuser in appjs: ', this.state.currentuser)
-    console.log('currentuser json in appjs: ', JSON.parse(decodeURI(user_string)))
-
-
-
-
-
-
+    // console.log('currentuser in appjs: ', this.state.currentuser)
     if (Platform.OS === 'ios') {
       SafariView.dismiss()
     }

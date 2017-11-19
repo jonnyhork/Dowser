@@ -10,15 +10,15 @@ const RouterComponent = () => {
 
  return (
    <Router>
-     <Scene key="root" hideNavBar>
+     <Scene key="root" hideNavBar >
 
        <Scene key="auth">
-         <Scene key="LoginView" component={LoginView} hideNavBar initial/>
+         <Scene key="LoginView" component={LoginView} hideNavBar initial />
        </Scene>
 
        <Scene key="main">
-         <Scene key='UserView' component={UserView} title='UserView'/>
-         <Scene key='MapView' component={MapView} title='MapView' hideNavBar/>
+         <Scene key='UserView' component={UserView} title='UserView' hideNavBar />
+         <Scene key='MapView' component={MapView} title='MapView' hideNavBar />
        </Scene>
 
       </Scene>
