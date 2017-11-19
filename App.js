@@ -23,7 +23,8 @@ export default class App extends Component {
       currentuser: null,
       latitude: null,
       longitude: null,
-      loading: false
+      loading: false,
+      searchResults: null
     }
   }
 
@@ -50,7 +51,7 @@ export default class App extends Component {
       console.log("***this state:",this.state)
       Actions.LoginView({loginWithGoogle: this.loginWithGoogle.bind(this)})
     })
-    // this.callFourSquareAPI()
+
   }
 
   loginWithGoogle = () => {
@@ -72,7 +73,8 @@ export default class App extends Component {
       // Send oAuth response to UserView a props
       Actions.UserView({
         currentuser: this.state.currentuser,
-        callFourSquareAPI: this.callFourSquareAPI.bind(this)
+        callFourSquareAPI: this.callFourSquareAPI.bind(this),
+        appState: this.state
       })
     })
     // console.log('currentuser in appjs: ', this.state.currentuser)
@@ -97,10 +99,34 @@ export default class App extends Component {
   }
 
   async callFourSquareAPI (searchTerm = `coffee`) {
+    console.log('the searchTerm before the API call is:', searchTerm)
       const response = await fetch(`${API_URL}?v=20171114&query=${searchTerm}&intent=fun&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&near=boulder,co&limit=50`)
       const json = await response.json()
-      console.log('this is the json response:', json)
+      // console.log('this is the json response:', json)
+      const jsonArr = json.response.group.results
+
+      this.extractInfoFromFoursquareApi(jsonArr)
     }
+
+  extractInfoFromFoursquareApi (jsonArr) {
+
+    const searchResults = jsonArr.map( item => {
+
+      const longitude = Number((item.venue.location.lng).toFixed(2))
+      const latitude = Number((item.venue.location.lat).toFixed(2))
+      const checkinCount = Number(item.venue.stats.checkinsCount)
+
+      return {
+        name: item.venue.name,
+        location:[longitude, latitude],
+        checkinCount
+      }
+    })
+    this.setState({
+      searchResults
+    })
+    console.log(`STATE SEARCH RESULTS`, this.state.searchResults)
+  }
 
 
 

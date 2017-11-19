@@ -44,7 +44,7 @@ class UserView extends Component {
             title='Go to map'
             backgroundColor='rgba(71, 15, 237, 0.64)'
             borderRadius={20}
-            onPress={() => Actions.MapView()}
+            onPress={() => Actions.MapView(this.props.appState)}
             />
         </View>
 
