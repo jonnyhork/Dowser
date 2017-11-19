@@ -10,11 +10,10 @@ import {
 } from 'react-native';
 import {Actions} from 'react-native-router-flux'
 import SafariView from 'react-native-safari-view'
-import { CLIENT_ID, CLIENT_SECRET } from 'react-native-dotenv'
+import { CLIENT_ID, CLIENT_SECRET, API_URL } from 'react-native-dotenv'
 
 // Imports all the views from the Router.js //
 import Router from './src/Router'
-
 
 export default class App extends Component {
 
@@ -51,7 +50,7 @@ export default class App extends Component {
       console.log("***this state:",this.state)
       Actions.LoginView({loginWithGoogle: this.loginWithGoogle.bind(this)})
     })
-
+    this.callFourSquareAPI()
   }
 
   loginWithGoogle = () => {
@@ -95,8 +94,12 @@ export default class App extends Component {
   }
 
   async callFourSquareAPI (searchTerm) {
-      const response = await fetch()
+      const response = await fetch(`${API_URL}?v=20171114&query=music&intent=fun&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&near=boulder,co&limit=50`)
+      const json = await response.json()
+      console.log('this is the json response:', json)
     }
+
+
 
   render() {
     if (this.state.loading) {
