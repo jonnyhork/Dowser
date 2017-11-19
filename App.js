@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import {Actions} from 'react-native-router-flux'
 import SafariView from 'react-native-safari-view'
+import { CLIENT_ID, CLIENT_SECRET } from 'react-native-dotenv'
+
 // Imports all the views from the Router.js //
 import Router from './src/Router'
 

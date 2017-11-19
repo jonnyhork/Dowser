@@ -10,9 +10,6 @@ import UserProfile from '../components/UserProfile'
 import FavoriteList from '../components/FavoriteList'
 import SearchBar from '../components/SearchBar'
 
-
-
-
 class UserView extends Component {
 
   render() {
@@ -23,11 +20,11 @@ class UserView extends Component {
         </View>
       )
     }
-    console.log('currentuser in UserView', this.props.currentuser)
+    
     return (
 
       <View style={style.userViewContainer}>
-      
+
         <View>
           <UserProfile currentuser={this.props.currentuser} />
         </View>
