@@ -24,10 +24,9 @@ export default class App extends Component {
       latitude: null,
       longitude: null,
       loading: false,
-      searchResults: null
+      searchResults: []
     }
   }
-
 
   async componentDidMount() {
     // OAuth
@@ -61,6 +60,7 @@ export default class App extends Component {
     this.openURL('https://dowser-api.herokuapp.com/auth/google')
   }
 
+  // THIS IS WERE APP STATE IS SENT TO UserView //
   handleOpenURL = async ({ url }) => {
     // Extract stringified user string out of the URL
     const [, user_string] = url.match(/user=([^#]+)/)
@@ -125,10 +125,8 @@ export default class App extends Component {
     this.setState({
       searchResults
     })
-    console.log(`STATE SEARCH RESULTS`, this.state.searchResults)
+    console.log(`STATE SEARCH RESULTS in APP.js`, this.state.searchResults)
   }
-
-
 
   render() {
     if (this.state.loading) {

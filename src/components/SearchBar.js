@@ -28,7 +28,6 @@ class Search_Bar extends Component {
         value={this.state.searchTerm}
         round
         onChangeText={ text => this.onSearchInputChange(text)}
-        onClearText={()=>console.log('cleared the text')}
         placeholder='coffee, music, art...' />
       </View>
     )

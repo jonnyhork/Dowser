@@ -9,7 +9,9 @@ import MapboxGL from '@mapbox/react-native-mapbox-gl'
 MapboxGL.setAccessToken('pk.eyJ1IjoiY3BsZXZhayIsImEiOiJjamExZG51OW45ZG53MnFzNGdzODkzcGo4In0.ZmhC0_CyQP21BGSOKO4UWA')
 
 export default class MapView extends Component {
+
   render() {
+    console.log("MAP VIEW PROPS:", this.props.appState)
     return (
       <View style={styles.mapContainer}>
         <MapboxGL.MapView
