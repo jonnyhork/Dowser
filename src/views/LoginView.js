@@ -19,7 +19,7 @@ class LoginView extends Component {
             title='Log in with google'
             backgroundColor='rgba(71, 15, 237, 0.64)'
             borderRadius={20}
-            onPress={() => this.props.loginWithGoogle()}
+            onPress={() => Actions.MapView()}
             />
         </View>
       </View>
