@@ -20,7 +20,6 @@ class Search_Bar extends Component {
     })
   }
 
-
   render() {
     return (
       <View style={style.searchBar}>

@@ -2,20 +2,25 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import style from '../styles'
 import { Actions } from 'react-native-router-flux'
-import MapboxGL from '@mapbox/react-native-mapbox-gl';
+import MapboxGL from '@mapbox/react-native-mapbox-gl'
 
 // import Map from '../components/Map'
 
-MapboxGL.setAccessToken('pk.eyJ1IjoiY3BsZXZhayIsImEiOiJjamExZG51OW45ZG53MnFzNGdzODkzcGo4In0.ZmhC0_CyQP21BGSOKO4UWA');
+MapboxGL.setAccessToken('pk.eyJ1IjoiY3BsZXZhayIsImEiOiJjamExZG51OW45ZG53MnFzNGdzODkzcGo4In0.ZmhC0_CyQP21BGSOKO4UWA')
 
-export default class MapView extends Component<{}> {
+export default class MapView extends Component {
+
+
 
   renderAnnotations () {
     return (
       <MapboxGL.PointAnnotation
-        key='pointAnnotation'
-        id='pointAnnotation'
-        coordinate={[-105.28, 40.01]}>
+        // key={this.props.name}
+        // id={this.props.name}
+        // title={this.props.name}
+        key='PointAnnotation'
+        id='PointAnnotation'
+        coordinate={this.props.mapBoxLocation}>
 
         <View style={styles.annotationContainer}>
           <View style={styles.annotationFill} />
@@ -26,12 +31,13 @@ export default class MapView extends Component<{}> {
   }
 
   render() {
+    console.log('this is the location', this.props.mapBoxLocation)
     return (
       <View style={styles.mapContainer}>
         <MapboxGL.MapView
             styleURL={MapboxGL.StyleURL.Dark}
             zoomLevel={12}
-            centerCoordinate={[-105.28, 40.01]}
+            centerCoordinate={this.props.mapBoxLocation ? this.props.mapBoxLocation : [-105.28, 40.01]}
             style={styles.mapContainer}
             showUserLocation={true}
             animated={true}
@@ -42,7 +48,7 @@ export default class MapView extends Component<{}> {
 
         </MapboxGL.MapView>
       </View>
-    );
+    )
   }
 }
 
@@ -51,16 +57,16 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   annotationContainer: {
-    width: 40,
-    height: 40,
+    width: 100,
+    height: 100,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 30,
+    borderRadius: 70,
   },
   annotationFill: {
-    width: 40,
-    height: 40,
-    borderRadius: 30,
+    width: 100,
+    height: 100,
+    borderRadius: 70,
     backgroundColor: 'rgba(196,109,59, 0.5)',
     transform: [{ scale: 0.6 }],
   }
