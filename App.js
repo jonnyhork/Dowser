@@ -50,7 +50,7 @@ export default class App extends Component {
       console.log("***this state:",this.state)
       Actions.LoginView({loginWithGoogle: this.loginWithGoogle.bind(this)})
     })
-    this.callFourSquareAPI()
+    // this.callFourSquareAPI()
   }
 
   loginWithGoogle = () => {
@@ -70,7 +70,10 @@ export default class App extends Component {
       loading: false
     }, () => {
       // Send oAuth response to UserView a props
-      Actions.UserView({ currentuser: this.state.currentuser })
+      Actions.UserView({
+        currentuser: this.state.currentuser,
+        callFourSquareAPI: this.callFourSquareAPI.bind(this)
+      })
     })
     // console.log('currentuser in appjs: ', this.state.currentuser)
     if (Platform.OS === 'ios') {
@@ -93,8 +96,8 @@ export default class App extends Component {
     // }
   }
 
-  async callFourSquareAPI (searchTerm) {
-      const response = await fetch(`${API_URL}?v=20171114&query=music&intent=fun&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&near=boulder,co&limit=50`)
+  async callFourSquareAPI (searchTerm = `coffee`) {
+      const response = await fetch(`${API_URL}?v=20171114&query=${searchTerm}&intent=fun&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&near=boulder,co&limit=50`)
       const json = await response.json()
       console.log('this is the json response:', json)
     }

@@ -20,7 +20,7 @@ class UserView extends Component {
         </View>
       )
     }
-    
+
     return (
 
       <View style={style.userViewContainer}>
@@ -30,7 +30,7 @@ class UserView extends Component {
         </View>
 
         <View>
-          <SearchBar />
+          <SearchBar callFourSquareAPI={this.props.callFourSquareAPI}/>
         </View>
 
         <View>

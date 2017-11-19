@@ -18,6 +18,7 @@ class Search_Bar extends Component {
     this.setState({
       searchTerm
     })
+    this.props.callFourSquareAPI(searchTerm)
   }
 
   render() {

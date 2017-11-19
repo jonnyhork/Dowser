@@ -28,3 +28,17 @@
 //     flex: 1,
 //   },
 // });
+
+
+jsonArr.map( item => {
+  const longitude = Number((item.venue.location.lng).toFixed(2))
+  const latitude = Number((item.venue.location.lat).toFixed(2))
+  const checkinCount = Number(item.venue.stats.checkinsCount)
+
+  return {
+    name: item.venue.name,
+    location:[longitude, latitude],
+    checkinCount
+
+  }
+})
