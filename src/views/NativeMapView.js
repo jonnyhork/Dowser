@@ -37,8 +37,8 @@ export default class NativeMapView extends Component {
                   longitude: i.location[1],
                 }}
                 title={ i.name }
-                onCalloutPress={ () => console.log('callout pressed!') }
-                onPress={ () => console.log('marker pressed!') }>
+                onCalloutPress={ () => this.props.getVenueDetails(i.venueId) }
+                onPress={ () => console.log(i.venueId) }>
 
                 <View style={{
                   height: (i.checkinCount/this.props.toScale),
