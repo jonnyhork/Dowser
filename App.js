@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import {Actions} from 'react-native-router-flux'
 import SafariView from 'react-native-safari-view'
-import { CLIENT_ID, CLIENT_SECRET, API_URL } from 'react-native-dotenv'
+import { CLIENT_ID, CLIENT_SECRET, API_URL, API_URL_VENUE } from 'react-native-dotenv'
 
 // Imports all the views from the Router.js //
 import Router from './src/Router'
@@ -140,10 +140,32 @@ export default class App extends Component {
         searchResults: this.state.searchResults,
         latitude: this.state.latitude,
         longitude: this.state.longitude,
-        toScale
+        toScale,
+        getVenueDetails: this.getVenueDetails.bind(this)
       })
     )
     // console.log(`this.STATE SEARCH RESULTS in APP.js`, this.state.searchResults)
+  }
+
+  async getVenueDetails(venueId) {
+    const response = await fetch(`${API_URL_VENUE}/${venueId}?v=20171114&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)
+    const json = await response.json()
+    const venueDetails = {
+      id: json.response.venue.id,
+      photo: `${json.response.venue.bestPhoto.prefix}original${json.response.venue.bestPhoto.suffix}`,
+      description: json.response.venue.description,
+      status: json.response.venue.hours.status,
+      address: json.response.venue.location.formattedAddress,
+      phone: json.response.venue.contact.formattedPhone,
+      website: json.response.venue.url,
+      delivery: json.response.venue.delivery.url,
+      checkIns: json.response.venue.stats.checkinsCount
+    }
+    console.log('these are the venue details: ', venueDetails)
+
+    // Actions.DetailView({ venueDetails })
+
+
   }
 
   render() {
