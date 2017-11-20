@@ -32,7 +32,6 @@ export default class MapView extends Component {
 
   render() {
     console.log("STATE AT MAPVIEW, searchResults", this.props.searchResults)
-    console.log("STATE AT MAPVIEW, allprops", this.props)
     // console.log('this is the location', this.props.mapBoxLocation)
     return (
       <View style={styles.mapContainer}>
