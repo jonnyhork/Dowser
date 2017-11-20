@@ -9,26 +9,25 @@ export default class NativeMapView extends Component {
 
 
   render() {
-    console.log('searchResults in map', this.props.searchResults)
+    // console.log('searchResults in map', this.props.searchResults)
+    // console.log("User location mapview props", this.props.userLocation)
     return (
 
       <View style={styles.mapContainer}>
         <MapView
           style={styles.map}
           initialRegion={{
-            latitude: 40.01,
-            longitude: -105.28,
+            latitude: this.props.latitude,
+            longitude: this.props.longitude,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
-          }}
-          // minZoomLevel={}
-          >
+          }}>
 
           { this.props.searchResults.map(i => (
             <MapView.Marker
               coordinate={{
-                latitude: i.location[1],
-                longitude: i.location[0],
+                latitude: i.location[0],
+                longitude: i.location[1],
               }}
               title={ i.name }>
 
