@@ -119,17 +119,21 @@ export default class App extends Component {
       const longitude = Number(item.venue.location.lng)
       const latitude = Number(item.venue.location.lat)
       const checkinCount = Number(item.venue.stats.checkinsCount)
+      const ratingColor = item.venue.ratingColor
+      const venueId = item.venue.id
 
       return {
         name: item.venue.name,
         location:[latitude, longitude],
-        checkinCount
+        checkinCount,
+        ratingColor,
+        venueId
       }
     })
+
     const checkinsArr = jsonArr.map( item => Number(item.venue.stats.checkinsCount) )
-    // console.log("this is the checkins array", checkinsArr)
     const toScale = (Math.max(...checkinsArr)*0.014)
-    // console.log("toScale is:", toScale)
+
     this.setState({
         searchResults
       },() => Actions.NativeMapView({
@@ -143,6 +147,7 @@ export default class App extends Component {
   }
 
   render() {
+    console.disableYellowBox = true
     if (this.state.loading) {
       return (
         <ActivityIndicator />
