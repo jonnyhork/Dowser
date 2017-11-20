@@ -129,7 +129,7 @@ export default class App extends Component {
     })
     this.setState({
         searchResults
-      },() => Actions.MapView({searchResults: this.state.searchResults})
+      },() => Actions.NativeMapView({searchResults: this.state.searchResults})
     )
     // console.log(`this.STATE SEARCH RESULTS in APP.js`, this.state.searchResults)
   }
