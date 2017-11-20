@@ -10,39 +10,45 @@ export default class NativeMapView extends Component {
 
   render() {
     console.log('searchResults in map', this.props.searchResults)
+    // console.log("User location mapview props", this.props.userLocation)
     return (
 
       <View style={styles.mapContainer}>
         <MapView
           style={styles.map}
+          showsUserLocation
           initialRegion={{
-            latitude: 40.01,
-            longitude: -105.28,
+            latitude: this.props.latitude,
+            longitude: this.props.longitude,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
-          }}
-          // minZoomLevel={}
-          >
+          }}>
 
-          { this.props.searchResults.map(i => (
-            <MapView.Marker
-              coordinate={{
-                latitude: i.location[1],
-                longitude: i.location[0],
-              }}
-              title={ i.name }>
+            {
+              this.props.searchResults.map( i => (
+              <MapView.Marker
+                key={i.location[0]}
+                coordinate={{
+                  latitude: i.location[0],
+                  longitude: i.location[1],
+                }}
+                title={ i.name }>
 
-                <View style={styles.marker} />
+                <View style={{
+                  height: (i.checkinCount/this.props.toScale),
+                  width: (i.checkinCount/this.props.toScale),
+                  borderWidth: 1,
+                  borderColor: 'blue',
+                  borderRadius: ((i.checkinCount/this.props.toScale)/2),
+                  overflow: 'hidden',
+                  backgroundColor: 'rgba(0, 217, 255, 0.38)'
+                }} />
 
               </MapView.Marker>
-
-          ))  }
-
-          </MapView>
+            ))
+          }
+        </MapView>
       </View>
-
-
-
     )
   }
 }
@@ -53,9 +59,9 @@ const styles = StyleSheet.create({
     width: 20,
     borderWidth: 3,
     borderColor: 'white',
-    borderRadius: 20/2,
+    borderRadius: 50,
     overflow: 'hidden',
-    backgroundColor: '#007AFF'
+    backgroundColor: 'rgba(0, 122, 255, 0.6)'
   },
   mapContainer: {
     flex: 1,
