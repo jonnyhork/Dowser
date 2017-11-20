@@ -4,12 +4,14 @@ import style from '../styles'
 import { Actions } from 'react-native-router-flux'
 import MapView from 'react-native-maps'
 
+// `#${i.ratingColor}`
 
 export default class NativeMapView extends Component {
 
 
   render() {
     console.log('searchResults in map', this.props.searchResults)
+    console.log('mapview props', this.props)
     // console.log("User location mapview props", this.props.userLocation)
     return (
 
@@ -17,6 +19,8 @@ export default class NativeMapView extends Component {
         <MapView
           style={styles.map}
           showsUserLocation
+          showsCompass
+          showsPointsOfInterest={false}
           initialRegion={{
             latitude: this.props.latitude,
             longitude: this.props.longitude,
@@ -37,8 +41,8 @@ export default class NativeMapView extends Component {
                 <View style={{
                   height: (i.checkinCount/this.props.toScale),
                   width: (i.checkinCount/this.props.toScale),
-                  borderWidth: 1,
-                  borderColor: 'blue',
+                  borderWidth: 2,
+                  borderColor: `#${i.ratingColor}`,
                   borderRadius: ((i.checkinCount/this.props.toScale)/2),
                   overflow: 'hidden',
                   backgroundColor: 'rgba(0, 217, 255, 0.38)'
