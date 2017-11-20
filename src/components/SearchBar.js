@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, TextInput } from 'react-native'
 import style from '../styles'
-import { SearchBar } from 'react-native-elements'
+import { SearchBar, Button } from 'react-native-elements'
 
 
 class Search_Bar extends Component {
@@ -9,26 +9,35 @@ class Search_Bar extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      searchTerm:''
+      searchTerm: ''
     }
   }
 
   onSearchInputChange(searchTerm) {
-    console.log("Search term is:", this.state.searchTerm)
+    // console.log("Search term is:", this.state.searchTerm)
     this.setState({
       searchTerm
     })
-    this.props.callFourSquareAPI(searchTerm)
+
+  }
+
+  submitSearch() {
+    this.props.callFourSquareAPI(this.state.searchTerm)
   }
 
   render() {
     return (
       <View style={style.searchBar}>
         <SearchBar
-        value={this.state.searchTerm}
-        round
-        onChangeText={ text => this.onSearchInputChange(text)}
-        placeholder='coffee, music, art...' />
+          value={this.state.searchTerm}
+          round
+          onChangeText={ text => this.onSearchInputChange(text)}
+          placeholder='coffee, music, art...' />
+        <Button
+          raised
+          icon={{name: 'search'}}
+          title='Search'
+          onPress= { () => this.submitSearch() } />
       </View>
     )
   }

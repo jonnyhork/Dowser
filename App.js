@@ -24,7 +24,7 @@ export default class App extends Component {
       latitude: null,
       longitude: null,
       loading: false,
-      searchResults: []
+      searchResults: null
     }
   }
 
@@ -48,7 +48,7 @@ export default class App extends Component {
         mapBoxLocation:[Number(longitude.toFixed(2)), Number(latitude.toFixed(2))]
       })
       console.log("***this state:",this.state)
-      console.log(this.state.mapBoxLocation)
+      // console.log(this.state.mapBoxLocation)
       Actions.LoginView({loginWithGoogle: this.loginWithGoogle.bind(this)})
     })
 
@@ -124,9 +124,10 @@ export default class App extends Component {
       }
     })
     this.setState({
-      searchResults
-    })
-    console.log(`STATE SEARCH RESULTS in APP.js`, this.state.searchResults)
+        searchResults
+      },() => Actions.MapView({searchResults: this.state.searchResults})
+    )
+    console.log(`this.STATE SEARCH RESULTS in APP.js`, this.state.searchResults)
   }
 
   render() {
