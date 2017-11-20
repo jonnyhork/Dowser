@@ -45,7 +45,7 @@ export default class App extends Component {
       this.setState({
         latitude,
         longitude,
-        mapBoxLocation:[Number(longitude.toFixed(2)), Number(latitude.toFixed(2))]
+        mapBoxLocation:[Number(longitude), Number(latitude)]
       })
       console.log("***this state:",this.state)
       // console.log(this.state.mapBoxLocation)
@@ -101,20 +101,24 @@ export default class App extends Component {
 
   async callFourSquareAPI (searchTerm = `coffee`) {
     console.log('the searchTerm before the API call is:', searchTerm)
-      const response = await fetch(`${API_URL}?v=20171114&query=${searchTerm}&intent=fun&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&near=boulder,co&limit=50`)
-      const json = await response.json()
-      // console.log('this is the json response:', json)
-      const jsonArr = json.response.group.results
+    // ll=${lat},${lng}
+    const lat = this.state.latitude
+    const lng = this.state.longitude
 
-      this.extractInfoFromFoursquareApi(jsonArr)
-    }
+    const response = await fetch(`${API_URL}?v=20171114&query=${searchTerm}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&near=boulder,co&limit=50`)
+    const json = await response.json()
+    // console.log('this is the json response:', json)
+    const jsonArr = json.response.group.results
+
+    this.extractInfoFromFoursquareApi(jsonArr)
+  }
 
   extractInfoFromFoursquareApi (jsonArr) {
 
     const searchResults = jsonArr.map( item => {
 
-      const longitude = Number((item.venue.location.lng).toFixed(2))
-      const latitude = Number((item.venue.location.lat).toFixed(2))
+      const longitude = Number(item.venue.location.lng)
+      const latitude = Number(item.venue.location.lat)
       const checkinCount = Number(item.venue.stats.checkinsCount)
 
       return {
@@ -125,9 +129,9 @@ export default class App extends Component {
     })
     this.setState({
         searchResults
-      },() => Actions.MapView({searchResults: this.state.searchResults})
+      },() => Actions.NativeMapView({searchResults: this.state.searchResults})
     )
-    console.log(`this.STATE SEARCH RESULTS in APP.js`, this.state.searchResults)
+    // console.log(`this.STATE SEARCH RESULTS in APP.js`, this.state.searchResults)
   }
 
   render() {
