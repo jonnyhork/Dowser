@@ -45,7 +45,7 @@ export default class App extends Component {
       this.setState({
         latitude,
         longitude,
-        mapBoxLocation:[Number(longitude.toFixed(2)), Number(latitude.toFixed(2))]
+        mapBoxLocation:[Number(longitude), Number(latitude)]
       })
       console.log("***this state:",this.state)
       // console.log(this.state.mapBoxLocation)
@@ -117,8 +117,8 @@ export default class App extends Component {
 
     const searchResults = jsonArr.map( item => {
 
-      const longitude = Number((item.venue.location.lng).toFixed(2))
-      const latitude = Number((item.venue.location.lat).toFixed(2))
+      const longitude = Number(item.venue.location.lng)
+      const latitude = Number(item.venue.location.lat)
       const checkinCount = Number(item.venue.stats.checkinsCount)
 
       return {
