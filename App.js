@@ -126,12 +126,17 @@ export default class App extends Component {
         checkinCount
       }
     })
+    const checkinsArr = jsonArr.map( item => Number(item.venue.stats.checkinsCount) )
+    // console.log("this is the checkins array", checkinsArr)
+    const toScale = (Math.max(...checkinsArr)*0.014)
+    // console.log("toScale is:", toScale)
     this.setState({
         searchResults
       },() => Actions.NativeMapView({
         searchResults: this.state.searchResults,
         latitude: this.state.latitude,
-        longitude: this.state.longitude
+        longitude: this.state.longitude,
+        toScale
       })
     )
     // console.log(`this.STATE SEARCH RESULTS in APP.js`, this.state.searchResults)

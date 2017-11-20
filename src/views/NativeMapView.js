@@ -35,11 +35,11 @@ export default class NativeMapView extends Component {
                 title={ i.name }>
 
                 <View style={{
-                  height: (i.checkinCount/800),
-                  width: (i.checkinCount/800),
+                  height: (i.checkinCount/this.props.toScale),
+                  width: (i.checkinCount/this.props.toScale),
                   borderWidth: 1,
                   borderColor: 'blue',
-                  borderRadius: ((i.checkinCount/800)/2),
+                  borderRadius: ((i.checkinCount/this.props.toScale)/2),
                   overflow: 'hidden',
                   backgroundColor: 'rgba(0, 217, 255, 0.38)'
                 }} />
