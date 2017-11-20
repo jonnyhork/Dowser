@@ -101,7 +101,7 @@ export default class App extends Component {
 
   async callFourSquareAPI (searchTerm = `coffee`) {
     console.log('the searchTerm before the API call is:', searchTerm)
-      const response = await fetch(`${API_URL}?v=20171114&query=${searchTerm}&intent=fun&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&near=boulder,co&limit=50`)
+      const response = await fetch(`${API_URL}?v=20171114&query=${searchTerm}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&near=boulder,co&limit=50`)
       const json = await response.json()
       // console.log('this is the json response:', json)
       const jsonArr = json.response.group.results
@@ -125,7 +125,7 @@ export default class App extends Component {
     })
     this.setState({
         searchResults
-      },() => Actions.MapView({searchResults: this.state.searchResults})
+      },() => Actions.NewMapView({searchResults: this.state.searchResults})
     )
     console.log(`this.STATE SEARCH RESULTS in APP.js`, this.state.searchResults)
   }
