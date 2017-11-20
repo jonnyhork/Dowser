@@ -16,6 +16,7 @@ export default class NativeMapView extends Component {
       <View style={styles.mapContainer}>
         <MapView
           style={styles.map}
+          showsUserLocation
           initialRegion={{
             latitude: this.props.latitude,
             longitude: this.props.longitude,
@@ -23,25 +24,22 @@ export default class NativeMapView extends Component {
             longitudeDelta: 0.0421,
           }}>
 
-          { this.props.searchResults.map(i => (
-            <MapView.Marker
-              coordinate={{
-                latitude: i.location[0],
-                longitude: i.location[1],
-              }}
-              title={ i.name }>
+            {
+              this.props.searchResults.map( i => (
+              <MapView.Marker
+                coordinate={{
+                  latitude: i.location[0],
+                  longitude: i.location[1],
+                }}
+                title={ i.name }>
 
                 <View style={styles.marker} />
 
               </MapView.Marker>
-
-          ))  }
-
-          </MapView>
+            ))
+          }
+        </MapView>
       </View>
-
-
-
     )
   }
 }
@@ -52,9 +50,9 @@ const styles = StyleSheet.create({
     width: 20,
     borderWidth: 3,
     borderColor: 'white',
-    borderRadius: 20/2,
+    borderRadius: 50,
     overflow: 'hidden',
-    backgroundColor: '#007AFF'
+    backgroundColor: 'rgba(0, 122, 255, 0.6)'
   },
   mapContainer: {
     flex: 1,
