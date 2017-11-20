@@ -10,22 +10,21 @@ MapboxGL.setAccessToken('pk.eyJ1IjoiY3BsZXZhayIsImEiOiJjamExZG51OW45ZG53MnFzNGdz
 
 export default class MapView extends Component {
 
-
-
-  renderAnnotations () {
+  renderAnnotations(i) {
+    console.log('running render annotations with: ', i)
     return (
       <MapboxGL.PointAnnotation
         // key={this.props.name}
         // id={this.props.name}
         // title={this.props.name}
-        key='PointAnnotation'
-        id='PointAnnotation'
-        coordinate={this.props.mapBoxLocation}>
+        // key={ i.name }
+        id={ i.name }
+        coordinate={ i.location }>
 
         <View style={styles.annotationContainer}>
           <View style={styles.annotationFill} />
         </View>
-        <MapboxGL.Callout title='Look! An annotation!' />
+        <MapboxGL.Callout title={ i.name } />
       </MapboxGL.PointAnnotation>
     )
   }
@@ -46,19 +45,7 @@ export default class MapView extends Component {
             zoomEnabled={true}
             scrollEnabled={true}>
 
-            <MapboxGL.PointAnnotation
-              key={2}
-              id={this.props.name}
-              title={this.props.name}
-              key='PointAnnotation'
-              id='PointAnnotation'
-              coordinate={[-105.28, 40.01]}>
-
-              <View style={styles.annotationContainer}>
-                <View style={styles.annotationFill2} />
-              </View>
-              <MapboxGL.Callout title='Look! An annotation!' />
-            </MapboxGL.PointAnnotation>
+            {this.renderAnnotations(this.props.searchResults[0])}
 
         </MapboxGL.MapView>
       </View>
