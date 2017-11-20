@@ -45,7 +45,6 @@ export default class App extends Component {
       this.setState({
         latitude,
         longitude,
-        mapBoxLocation:[Number(longitude), Number(latitude)]
       })
       console.log("***this state:",this.state)
       // console.log(this.state.mapBoxLocation)
@@ -105,7 +104,7 @@ export default class App extends Component {
     const lat = this.state.latitude
     const lng = this.state.longitude
 
-    const response = await fetch(`${API_URL}?v=20171114&query=${searchTerm}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&near=boulder,co&limit=50`)
+    const response = await fetch(`${API_URL}?v=20171114&query=${searchTerm}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&ll=${lat},${lng}&limit=50`)
     const json = await response.json()
     // console.log('this is the json response:', json)
     const jsonArr = json.response.group.results
@@ -123,13 +122,22 @@ export default class App extends Component {
 
       return {
         name: item.venue.name,
-        location:[longitude, latitude],
+        location:[latitude, longitude],
         checkinCount
       }
     })
+    const checkinsArr = jsonArr.map( item => Number(item.venue.stats.checkinsCount) )
+    // console.log("this is the checkins array", checkinsArr)
+    const toScale = (Math.max(...checkinsArr)*0.014)
+    // console.log("toScale is:", toScale)
     this.setState({
         searchResults
-      },() => Actions.NativeMapView({searchResults: this.state.searchResults})
+      },() => Actions.NativeMapView({
+        searchResults: this.state.searchResults,
+        latitude: this.state.latitude,
+        longitude: this.state.longitude,
+        toScale
+      })
     )
     // console.log(`this.STATE SEARCH RESULTS in APP.js`, this.state.searchResults)
   }
