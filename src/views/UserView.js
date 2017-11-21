@@ -47,14 +47,3 @@ class UserView extends Component {
 }
 
 export default UserView
-
-
-
-// <Button
-//   large
-//   icon={{name: 'map-o', type: 'font-awesome'}}
-//   title='Go to map'
-//   backgroundColor='rgba(71, 15, 237, 0.64)'
-//   borderRadius={20}
-//   onPress={() => Actions.MapView(this.props.appState)}
-//   />

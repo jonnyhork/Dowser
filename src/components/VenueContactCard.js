@@ -3,13 +3,15 @@ import {ActivityIndicator, View, Text, Image} from 'react-native'
 import style from '../styles'
 import { Avatar } from 'react-native-elements'
 
-class VenueDetailHeader extends Component {
+class VenueContactCard extends Component {
 
   render () {
+
+
     return (
       <View>
 
-         <Text>This is the detial header</Text>
+        <Text>This is the Contact card</Text>
 
       </View>
     )
@@ -18,4 +20,4 @@ class VenueDetailHeader extends Component {
 }
 
 
-export default VenueDetailHeader
+export default VenueContactCard
