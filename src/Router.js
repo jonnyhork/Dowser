@@ -6,6 +6,7 @@ import LoginView from './views/LoginView'
 import UserView from './views/UserView'
 import NativeMapView from './views/NativeMapView'
 import VenueDetailView from './views/VenueDetailView'
+import ActivityIndicatorView from './views/ActivityIndicatorView'
 
 const RouterComponent = () => {
 
@@ -13,15 +14,12 @@ const RouterComponent = () => {
    <Router>
      <Scene key="root" hideNavBar >
 
-       <Scene key="auth">
-         <Scene key="LoginView" component={LoginView} hideNavBar initial />
-       </Scene>
-
-       <Scene key="main">
+         <Scene key="ActivityIndicatorView" component={ActivityIndicatorView} hideNavBar initial/>
+         <Scene key="LoginView" component={LoginView} hideNavBar />
          <Scene key='UserView' component={UserView} title='UserView' hideNavBar />
          <Scene key='VenueDetailView' component={VenueDetailView} title='Venue Name?' />
          <Scene key='NativeMapView' component={NativeMapView} title='NativeMapView' hideNavBar />
-       </Scene>
+
 
       </Scene>
    </Router>
