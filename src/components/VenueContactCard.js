@@ -1,24 +1,32 @@
 import React, { Component } from 'react'
-import {ActivityIndicator, View, Text, Image} from 'react-native'
+import { ActivityIndicator, View, Image, Text } from 'react-native'
 import style from '../styles'
-import { Avatar } from 'react-native-elements'
+import { Button } from 'react-native-elements'
 
-
-// import a card from react elements??
 class VenueContactCard extends Component {
 
   render () {
 
     console.log('card', this.props.venueDetails)
     return (
-      <View>
+      <View style={style.venueContactView}>
+        <Text style={style.venueContactHeader}> Contact </Text>
+        <View style={style.shadow}>
+          <View>
+            <Text style={style.venueContactHeader}> Hours </Text>
+            <Text>These are the hours, her is some more text for he card</Text>
+          </View>
 
-        <Image
-          style={{width: 300, height: 300}}
-          source={{uri: this.props.venueDetails.photo}} />
+          <View>
+            <Text style={style.venueContactHeader}> Website </Text>
+            <Text> Website link </Text>
+          </View>
 
-        <Text>{this.props.venueDetails.description}</Text>
-
+          <View>
+            <Text style={style.venueContactHeader}> Address </Text>
+            <Text> This is the address</Text>
+          </View>
+        </View>
       </View>
     )
   }

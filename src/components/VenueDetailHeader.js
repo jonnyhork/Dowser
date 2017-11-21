@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import {ActivityIndicator, View, Text, Image} from 'react-native'
+import {ActivityIndicator, View, Image, Text } from 'react-native'
 import style from '../styles'
-import { Avatar } from 'react-native-elements'
+import { Button } from 'react-native-elements'
 
 class VenueDetailHeader extends Component {
 
@@ -9,11 +9,20 @@ class VenueDetailHeader extends Component {
 
     console.log('header', this.props.venueDetails)
     return (
-      <View>
+      <View style={style.venueHeaderView}>
 
-        
+        <View>
+          <Text style={style.venueHeaderText} >{this.props.venueDetails.name}</Text>
+        </View>
 
-         <Text>{this.props.venueDetails.name}</Text>
+        <View style={style.shadow}>
+          <Image
+            style={{width: 350, height: 250}}
+            source={{uri: this.props.venueDetails.photo}}
+            />
+
+          <Text style={style.venueDecriptionText}>{this.props.venueDetails.description}</Text>
+        </View>
 
       </View>
     )
