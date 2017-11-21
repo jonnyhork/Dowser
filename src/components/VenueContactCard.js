@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import { ActivityIndicator, View, Image } from 'react-native'
+import { ActivityIndicator, View, Image, Text } from 'react-native'
 import style from '../styles'
-import { Text } from 'react-native-elements'
+import { Button } from 'react-native-elements'
 
-
-// import a card from react elements??
 class VenueContactCard extends Component {
 
   render () {
@@ -12,9 +10,23 @@ class VenueContactCard extends Component {
 
     return (
       <View style={style.venueContactView}>
-        <Text h4> Contact </Text>
-        <Text>This is the Contact card</Text>
+        <Text style={style.venueContactHeader}> Contact </Text>
+        <View style={style.shadow}>
+          <View>
+            <Text style={style.venueContactHeader}> Hours </Text>
+            <Text>These are the hours, her is some more text for he card</Text>
+          </View>
 
+          <View>
+            <Text style={style.venueContactHeader}> Website </Text>
+            <Text> Website link </Text>
+          </View>
+
+          <View>
+            <Text style={style.venueContactHeader}> Address </Text>
+            <Text> This is the address</Text>
+          </View>
+        </View>
       </View>
     )
   }

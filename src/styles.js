@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
   venueHeaderView: {
     padding:10,
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'center',
   },
   venueHeaderText: {
@@ -55,9 +55,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   venueContactView: {
+    width: 450,
     padding: 5,
     alignItems: 'flex-start',
     justifyContent: 'center',
+  },
+  venueContactHeader: {
+    fontSize: 20,
+    padding: 5
   },
   shadow: {
     shadowColor: '#000',
