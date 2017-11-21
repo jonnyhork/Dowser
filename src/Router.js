@@ -16,7 +16,7 @@ const RouterComponent = () => {
 
          <Scene key="ActivityIndicatorView" component={ActivityIndicatorView} hideNavBar initial/>
          <Scene key="LoginView" component={LoginView} hideNavBar />
-         <Scene key='UserView' component={UserView} title='UserView' hideNavBar />
+         <Scene key='UserView' component={UserView} panHandlers={null} title='UserView' hideNavBar />
          <Scene key='VenueDetailView' component={VenueDetailView} title='Venue Name?' />
          <Scene key='NativeMapView' component={NativeMapView} title='NativeMapView' hideNavBar />
 
