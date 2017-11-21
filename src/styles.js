@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   logoText: {
     fontSize: 50,
     color: 'rgb(255,255,255)',
-    fontFamily: 'Quicksand-Light'
+    // fontFamily: 'Quicksand-Light'
   },
   taglineText: {
     color: 'rgb(255,255,255)'
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   buttonView: {
-    margin:20,
+    marginTop: 150,
   }
 })
 

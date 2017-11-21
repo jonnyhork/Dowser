@@ -14,11 +14,12 @@ class LoginView extends Component {
         <Logo />
         <View style={style.buttonView}>
           <Button
-            large
+            style={style.shadow}
+            medium
             icon={{name: 'google', type: 'font-awesome'}}
             title='Log in with google'
-            backgroundColor='rgba(124,180,199, 0.5)'
-            borderRadius={20}
+            backgroundColor='rgba(117,206,182,0.8)'
+            borderRadius={15}
             onPress={() => this.props.loginWithGoogle()}
             />
         </View>

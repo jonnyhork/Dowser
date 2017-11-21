@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ActivityIndicator, Text, View } from 'react-native'
+import { ActivityIndicator, Text, View, Image, StyleSheet } from 'react-native'
 import { Button } from 'react-native-elements'
 import { Actions } from 'react-native-router-flux'
 // STYLESHEET //
@@ -23,7 +23,9 @@ class UserView extends Component {
 
     return (
 
-      <View style={style.userViewContainer}>
+      <View>
+
+        <Image source={require('../../assets/background.png')} style={styles.background}/>
 
         <View>
           <UserProfile currentuser={this.props.currentuser} />
@@ -46,15 +48,14 @@ class UserView extends Component {
   }
 }
 
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    position: 'absolute',
+    height: 671,
+    width: 380
+
+  },
+})
+
 export default UserView
-
-
-
-// <Button
-//   large
-//   icon={{name: 'map-o', type: 'font-awesome'}}
-//   title='Go to map'
-//   backgroundColor='rgba(71, 15, 237, 0.64)'
-//   borderRadius={20}
-//   onPress={() => Actions.MapView(this.props.appState)}
-//   />

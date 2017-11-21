@@ -36,9 +36,10 @@ class Search_Bar extends Component {
           onChangeText={ text => this.onSearchInputChange(text)}
           placeholder='ex. coffee...' />
         <Button
+          style={style.shadow}
           buttonStyle={styles.searchButton}
           borderRadius={15}
-          backgroundColor={'rgba(124,180,199, 0.5)'}
+          backgroundColor={'rgba(117,206,182,0.8)'}
           title={'search'}
           // icon={{name: 'search'}}
           onPress= { () => this.submitSearch() } />
@@ -51,6 +52,7 @@ class Search_Bar extends Component {
 const styles = StyleSheet.create({
   searchContainer: {
     backgroundColor: 'rgba(255, 255, 255, 0)',
+    color: 'rgba(255, 255, 255, 1)',
     borderTopWidth: 0,
     borderBottomWidth: 0,
     width: 200
