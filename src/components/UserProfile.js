@@ -25,7 +25,7 @@ class UserProfile extends Component {
             activeOpacity={0.7}
           />
           <Text style={style.userNameText}>
-            Hello, {this.props.currentuser.name}
+            Hello, {this.props.currentuser.firstName}
           </Text>
         </View>
       </View>
