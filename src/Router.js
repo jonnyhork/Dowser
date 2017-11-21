@@ -12,13 +12,13 @@ const RouterComponent = () => {
 
  return (
    <Router>
-     <Scene key="root" hideNavBar >
+     <Scene key="root" >
 
          <Scene key="ActivityIndicatorView" component={ActivityIndicatorView} hideNavBar initial/>
          <Scene key="LoginView" component={LoginView} hideNavBar />
-         <Scene key='UserView' component={UserView} panHandlers={null} title='UserView' hideNavBar />
-         <Scene key='VenueDetailView' component={VenueDetailView} title='Venue Name?' />
-         <Scene key='NativeMapView' component={NativeMapView} title='NativeMapView' hideNavBar />
+         <Scene key='UserView' component={UserView} panHandlers={null} title='Back' hideNavBar />
+         <Scene key='VenueDetailView' component={VenueDetailView} title='Dowser' />
+         <Scene key='NativeMapView' component={NativeMapView} title='Map' hideNavBar />
 
 
       </Scene>
