@@ -44,15 +44,15 @@ const styles = StyleSheet.create({
     padding:10,
     alignItems: 'center',
     // justifyContent: 'center',
-    backgroundColor: 'rgba(255,255,255,0)'
+    backgroundColor: 'rgba(255,255,255,0)',
   },
   venueHeaderText: {
     paddingBottom:10,
     fontSize: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
     backgroundColor: 'rgba(255,255,255,0)',
-    // color: 'rgba(255,255,255,1)'
+    color: 'rgba(255,255,255,1)'
   },
   venueDecriptionText: {
     padding:5,
@@ -60,19 +60,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'rgba(255,255,255,0)',
-    color: 'rgba(255,255,255,1)'
+    color: '#000'
   },
   venueContactView: {
     width: 450,
-    padding: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingLeft: 15,
     backgroundColor: 'rgba(255,255,255,0)'
   },
   venueContactHeader: {
     fontSize: 20,
     padding: 5,
-    backgroundColor: 'rgba(255,255,255,0)'
+    backgroundColor: 'rgba(255,255,255,0)',
+    color: 'rgba(255,255,255,1)'
   },
   shadow: {
     shadowColor: '#000',

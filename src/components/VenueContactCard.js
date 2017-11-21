@@ -23,7 +23,7 @@ class VenueContactCard extends Component {
           </View>
 
           <View>
-            <Text style={{color: 'rgba(255,255,255,1)'}} onPress={() => Linking.openURL(this.props.venueDetails.website)}>{this.props.venueDetails.website}</Text>
+            <Text style={{color: 'rgba(0,0,0,1)', paddingBottom: 5}} onPress={() => Linking.openURL(this.props.venueDetails.website)}>{this.props.venueDetails.website}</Text>
           </View>
 
         </View>

@@ -15,14 +15,11 @@ render() {
  return (
    <Router>
      <Scene key="root" >
-
          <Scene key="ActivityIndicatorView" component={ActivityIndicatorView} hideNavBar initial/>
          <Scene key="LoginView" component={LoginView} hideNavBar />
          <Scene key='UserView' component={UserView} panHandlers={null} title='Back' hideNavBar />
-         <Scene key='VenueDetailView' component={VenueDetailView} title='Info' navigationBarStyle={{backgroundColor: 'rgba(163, 205, 217, 1)'}} />
+         <Scene key='VenueDetailView' component={VenueDetailView} title='' navigationBarStyle={{backgroundColor: 'rgba(117,206,182,1)'}} />
          <Scene key='NativeMapView' component={NativeMapView} title={this.props.searchTerm} navigationBarStyle={{backgroundColor: 'rgba(163, 205, 217, 1)'}} />
-
-
       </Scene>
    </Router>
  )

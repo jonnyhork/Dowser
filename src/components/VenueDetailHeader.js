@@ -15,9 +15,9 @@ class VenueDetailHeader extends Component {
           <Text style={style.venueHeaderText} >{this.props.venueDetails.name}</Text>
         </View>
 
-        <View>
+        <View style={style.shadow}>
           <Image
-            style={{width: 350, height: 250}}
+            style={{width: 350, height: 250, padding: 0}}
             source={{uri: this.props.venueDetails.photo}}
             />
 
