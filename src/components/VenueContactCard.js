@@ -3,6 +3,8 @@ import {ActivityIndicator, View, Text, Image} from 'react-native'
 import style from '../styles'
 import { Avatar } from 'react-native-elements'
 
+
+// import a card from react elements??
 class VenueContactCard extends Component {
 
   render () {
