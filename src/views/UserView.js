@@ -36,8 +36,7 @@ class UserView extends Component {
 
         <View>
           <FavoriteList
-            updatedFavorites={ this.props.currentuser.updatedFavorites }
-            favorites={ this.props.currentuser.favorites }
+            userFavorites={ this.props.userFavorites }
             getVenueDetails={this.props.getVenueDetails}
           />
         </View>

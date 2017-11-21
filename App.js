@@ -76,6 +76,7 @@ export default class App extends Component {
       // Send oAuth response to UserView as props
       Actions.UserView({
         currentuser: this.state.currentuser,
+        userFavorites: this.state.currentuser.favorites,
         callFourSquareAPI: this.callFourSquareAPI.bind(this),
         getVenueDetails: this.getVenueDetails.bind(this),
         addToFavorites: this.addToFavorites.bind(this),
@@ -168,6 +169,7 @@ export default class App extends Component {
   }
 
   async addToFavorites(details) {
+    // add new favorite
     const favPost = await fetch(`${API_DOWSER}/favorites/add/${this.state.currentuser.googleID}`, {
       method: 'POST',
       headers: {
@@ -178,10 +180,18 @@ export default class App extends Component {
         venueId: details.id
       })
     })
+    // get favorites array back from db
     const updatedFavorites = await favPost.json()
     console.log('response from post to favorites', updatedFavorites)
-
-    Actions.UserView(updatedFavorites)
+    // update favorites in state and redirect to user view
+    this.setState({
+      userFavorites: updatedFavorites
+    }, () => {
+      Actions.UserView({
+        userFavorites: this.state.userFavorites,
+        currentuser: this.state.currentuser
+      })
+    })
   }
 
 

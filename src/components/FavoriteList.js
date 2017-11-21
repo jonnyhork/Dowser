@@ -14,7 +14,7 @@ class FavoriteList extends Component {
     console.log('props in favs', this.props)
     return (
       <View>
-        <FlatList data={this.props.updatedFavorites ? this.props.updatedFavorites : this.props.favorites} renderItem={ ({item}) =>
+        <FlatList data={this.props.userFavorites} renderItem={ ({item}) =>
           <ListItem
             key={ item.venueId }
             title={ item.name }
