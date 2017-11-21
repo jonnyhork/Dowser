@@ -10,7 +10,7 @@ class VenueContactCard extends Component {
     console.log('card', this.props.venueDetails)
     return (
       <View style={style.venueContactView}>
-        <View style={style.shadow}>
+        <View>
 
           <View>
             <Text style={style.venueContactHeader}> Status </Text>
@@ -23,7 +23,7 @@ class VenueContactCard extends Component {
           </View>
 
           <View>
-            <Text style={{color: 'blue'}} onPress={() => Linking.openURL(this.props.venueDetails.website)}>{this.props.venueDetails.website}</Text>
+            <Text style={{color: 'rgba(255,255,255,1)'}} onPress={() => Linking.openURL(this.props.venueDetails.website)}>{this.props.venueDetails.website}</Text>
           </View>
 
         </View>

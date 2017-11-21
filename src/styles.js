@@ -42,30 +42,37 @@ const styles = StyleSheet.create({
   },
   venueHeaderView: {
     padding:10,
-    alignItems: 'flex-start',
-    justifyContent: 'center',
+    alignItems: 'center',
+    // justifyContent: 'center',
+    backgroundColor: 'rgba(255,255,255,0)'
   },
   venueHeaderText: {
     paddingBottom:10,
     fontSize: 30,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'rgba(255,255,255,0)',
+    // color: 'rgba(255,255,255,1)'
   },
   venueDecriptionText: {
     padding:5,
     fontSize: 15,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'rgba(255,255,255,0)',
+    color: 'rgba(255,255,255,1)'
   },
   venueContactView: {
     width: 450,
     padding: 5,
-    alignItems: 'flex-start',
+    alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'rgba(255,255,255,0)'
   },
   venueContactHeader: {
     fontSize: 20,
-    padding: 5
+    padding: 5,
+    backgroundColor: 'rgba(255,255,255,0)'
   },
   shadow: {
     shadowColor: '#000',
@@ -79,7 +86,13 @@ const styles = StyleSheet.create({
   },
   buttonView: {
     marginTop: 150,
-  }
+  },
+  background: {
+    flex: 1,
+    position: 'absolute',
+    height: 671,
+    width: 380
+  },
 })
 
 export default styles
