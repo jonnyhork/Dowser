@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
   userNameText: {
     fontSize: 25,
     color: 'rgb(255,255,255)',
-    paddingTop: 10
+    paddingTop: 10,
+    backgroundColor: 'rgba(255, 255, 255, 0)'
   },
   shadow: {
     shadowColor: '#000',

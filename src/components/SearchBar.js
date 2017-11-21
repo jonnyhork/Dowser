@@ -30,13 +30,13 @@ class Search_Bar extends Component {
       <View style={style.searchBar}>
         <SearchBar
           containerStyle={styles.searchContainer}
+          inputStyle={styles.searchInput}
           value={this.state.searchTerm}
           round
           lightTheme={true}
           onChangeText={ text => this.onSearchInputChange(text)}
           placeholder='ex. coffee...' />
         <Button
-          style={style.shadow}
           buttonStyle={styles.searchButton}
           borderRadius={15}
           backgroundColor={'rgba(117,206,182,0.8)'}
@@ -52,15 +52,19 @@ class Search_Bar extends Component {
 const styles = StyleSheet.create({
   searchContainer: {
     backgroundColor: 'rgba(255, 255, 255, 0)',
-    color: 'rgba(255, 255, 255, 1)',
     borderTopWidth: 0,
     borderBottomWidth: 0,
     width: 200
   },
+  searchInput: {
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+  },
   searchButton: {
-    padding: 6,
-    marginTop: 8,
-
+    padding: 5,
+    marginTop: 7,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height:2 },
+    shadowOpacity: 0.2
   }
 })
 

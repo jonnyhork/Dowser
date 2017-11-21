@@ -94,7 +94,8 @@ const styles = StyleSheet.create({
     marginLeft: 70,
     marginBottom: 10,
     color: 'rgba(255, 255, 255, 1)',
-    fontSize: 20
+    fontSize: 20,
+    backgroundColor: 'rgba(255, 255, 255, 0)'
   },
   listContainer: {
     marginRight: 50,
