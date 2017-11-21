@@ -113,10 +113,10 @@ export default class App extends Component {
     const json = await response.json()
     const jsonArr = json.response.group.results
 
-    this.extractInfoFromFoursquareApi(jsonArr)
+    this.extractInfoFromFoursquareApi(jsonArr, searchTerm)
   }
 
-  extractInfoFromFoursquareApi (jsonArr) {
+  extractInfoFromFoursquareApi (jsonArr, searchTerm) {
 
     const searchResults = jsonArr.map( item => {
 
@@ -139,7 +139,8 @@ export default class App extends Component {
     const toScale = (Math.max(...checkinsArr)*0.014)
 
     this.setState({
-        searchResults
+        searchResults,
+        searchTerm
       },() => Actions.NativeMapView({
         searchResults: this.state.searchResults,
         latitude: this.state.latitude,
@@ -204,7 +205,7 @@ export default class App extends Component {
       )
     }
     return (
-      <Router />
+      <Router searchTerm={this.state.searchTerm} />
     )
   }
 }
