@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import {ActivityIndicator, View, Text, Image} from 'react-native'
+import { ActivityIndicator, View, Text, ScrollView } from 'react-native'
 import style from '../styles'
-import { Avatar } from 'react-native-elements'
+import { Button } from 'react-native-elements'
 
 // COMPONENTS
 import VenueDetailHeader from '../components/VenueDetailHeader'
@@ -21,12 +21,12 @@ class VenueDetailView extends Component {
     // }
 
     return (
-      <View>
+      <ScrollView>
 
         <VenueDetailHeader />
         <VenueContactCard />
 
-      </View>
+      </ScrollView>
     )
   }
 
