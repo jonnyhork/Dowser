@@ -189,7 +189,8 @@ export default class App extends Component {
     }, () => {
       Actions.UserView({
         userFavorites: this.state.userFavorites,
-        currentuser: this.state.currentuser
+        currentuser: this.state.currentuser,
+        getVenueDetails: this.getVenueDetails.bind(this)
       })
     })
   }
