@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {Scene, Router} from 'react-native-router-flux'
 
 // VIEWS //
@@ -8,8 +8,10 @@ import NativeMapView from './views/NativeMapView'
 import VenueDetailView from './views/VenueDetailView'
 import ActivityIndicatorView from './views/ActivityIndicatorView'
 
-const RouterComponent = () => {
+class RouterComponent extends Component {
 
+
+render() {
  return (
    <Router>
      <Scene key="root" >
@@ -17,13 +19,14 @@ const RouterComponent = () => {
          <Scene key="ActivityIndicatorView" component={ActivityIndicatorView} hideNavBar initial/>
          <Scene key="LoginView" component={LoginView} hideNavBar />
          <Scene key='UserView' component={UserView} panHandlers={null} title='Back' hideNavBar />
-         <Scene key='VenueDetailView' component={VenueDetailView} title='Dowser' />
-         <Scene key='NativeMapView' component={NativeMapView} title='Map' hideNavBar />
+         <Scene key='VenueDetailView' component={VenueDetailView} title='Info' navigationBarStyle={{backgroundColor: 'rgba(163, 205, 217, 1)'}} />
+         <Scene key='NativeMapView' component={NativeMapView} title={this.props.searchTerm} navigationBarStyle={{backgroundColor: 'rgba(163, 205, 217, 1)'}} />
 
 
       </Scene>
    </Router>
  )
+}
 
 }
 
