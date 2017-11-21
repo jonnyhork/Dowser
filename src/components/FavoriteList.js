@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, FlatList } from 'react-native'
+import { Text, View, FlatList, StyleSheet } from 'react-native'
 import style from '../styles'
 import { List, ListItem } from 'react-native-elements'
 
@@ -71,14 +71,39 @@ class FavoriteList extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.list}>
+        <Text style={styles.favorites}>
+          Your Favorites
+        </Text>
         <FlatList
+          style={styles.listContainer}
           data={favorites}
-          renderItem={ ({item}) => <ListItem key={item.id} title={item.name} />}
+          renderItem={ ({item}) => <ListItem containerStyle={styles.listItem} key={item.id} title={item.name} />}
         />
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  list: {
+    justifyContent: 'center'
+  },
+  favorites: {
+    marginTop: 30,
+    marginLeft: 70,
+    marginBottom: 10,
+    color: 'rgba(255, 255, 255, 1)',
+    fontSize: 20
+  },
+  listContainer: {
+    marginRight: 50,
+    marginLeft: 50,
+    marginTop: 0
+  },
+  listItem: {
+    borderBottomWidth: 0
+  },
+})
 
 export default FavoriteList

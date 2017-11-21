@@ -3,6 +3,7 @@ import { Text, View, StyleSheet } from 'react-native'
 import style from '../styles'
 import { Actions } from 'react-native-router-flux'
 import MapView from 'react-native-maps'
+import { Button } from 'react-native-elements'
 
 // `#${i.ratingColor}`
 
@@ -16,6 +17,7 @@ export default class NativeMapView extends Component {
     return (
 
       <View style={styles.mapContainer}>
+
         <MapView
           style={styles.map}
           showsUserLocation

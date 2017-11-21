@@ -4,13 +4,13 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#302B2F',
+    backgroundColor: '#406C7A',
     alignItems: 'center',
     justifyContent: 'center',
   },
   logInView: {
     flex: 1,
-    backgroundColor: '#302B2F',
+    backgroundColor: '#406C7A',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -20,22 +20,24 @@ const styles = StyleSheet.create({
   },
   logoText: {
     fontSize: 50,
-    color: '#C46D3B',
+    color: 'rgb(255,255,255)',
+    fontFamily: 'Quicksand-Light'
   },
   taglineText: {
-    color: '#ECEFD8'
+    color: 'rgb(255,255,255)'
   },
   userViewContainer: {
     flex: 1,
-    backgroundColor: '#302B2F'
+    backgroundColor: '#406C7A'
   },
   userProfile: {
-    paddingTop: 20,
+    paddingTop: 80,
     alignItems: 'center',
   },
   userNameText: {
     fontSize: 25,
-    color: '#C46D3B'
+    color: 'rgb(255,255,255)',
+    paddingTop: 10
   },
   shadow: {
     shadowColor: '#000',
@@ -44,9 +46,11 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     paddingTop: 20,
+    flexDirection: 'row',
+    justifyContent: 'center'
   },
   buttonView: {
-    margin:50,
+    margin:20,
   }
 })
 

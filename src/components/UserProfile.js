@@ -19,13 +19,13 @@ class UserProfile extends Component {
       <View>
         <View style={style.userProfile}>
           <Avatar
-            xlarge
+            large
             rounded
             source={ {uri: this.props.currentuser.photo} }
             activeOpacity={0.7}
           />
           <Text style={style.userNameText}>
-            {this.props.currentuser.name}
+            Hello, {this.props.currentuser.name}
           </Text>
         </View>
       </View>

@@ -17,7 +17,7 @@ class LoginView extends Component {
             large
             icon={{name: 'google', type: 'font-awesome'}}
             title='Log in with google'
-            backgroundColor='rgba(71, 15, 237, 0.64)'
+            backgroundColor='rgba(124,180,199, 0.5)'
             borderRadius={20}
             onPress={() => this.props.loginWithGoogle()}
             />
