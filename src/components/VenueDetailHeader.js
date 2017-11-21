@@ -6,10 +6,14 @@ import { Avatar } from 'react-native-elements'
 class VenueDetailHeader extends Component {
 
   render () {
+
+    console.log('header', this.props.venueDetails)
     return (
       <View>
 
-         <Text>This is the detial header</Text>
+        
+
+         <Text>{this.props.venueDetails.name}</Text>
 
       </View>
     )

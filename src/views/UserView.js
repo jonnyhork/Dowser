@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { ActivityIndicator, Text, View } from 'react-native'
 import { Button } from 'react-native-elements'
 import { Actions } from 'react-native-router-flux'
+import { API_DOWSER } from 'react-native-dotenv'
 // STYLESHEET //
 import style from '../styles'
 
@@ -20,7 +21,7 @@ class UserView extends Component {
         </View>
       )
     }
-
+    console.log('props in user', this.props)
     return (
 
       <View style={style.userViewContainer}>
@@ -34,7 +35,11 @@ class UserView extends Component {
         </View>
 
         <View>
-          <FavoriteList />
+          <FavoriteList
+            updatedFavorites={ this.props.currentuser.updatedFavorites }
+            favorites={ this.props.currentuser.favorites }
+            getVenueDetails={this.props.getVenueDetails}
+          />
         </View>
 
         <View style={style.buttonView}>

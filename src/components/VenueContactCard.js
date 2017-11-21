@@ -9,11 +9,15 @@ class VenueContactCard extends Component {
 
   render () {
 
-
+    console.log('card', this.props.venueDetails)
     return (
       <View>
 
-        <Text>This is the Contact card</Text>
+        <Image
+          style={{width: 300, height: 300}}
+          source={{uri: this.props.venueDetails.photo}} />
+
+        <Text>{this.props.venueDetails.description}</Text>
 
       </View>
     )
