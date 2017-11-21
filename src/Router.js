@@ -19,7 +19,7 @@ const RouterComponent = () => {
 
        <Scene key="main">
          <Scene key='UserView' component={UserView} title='UserView' hideNavBar />
-         <Scene key='VenueDetailView' component={VenueDetailView} title='VenueDetailView' />
+         <Scene key='VenueDetailView' component={VenueDetailView} title='Venue Name?' />
          <Scene key='NativeMapView' component={NativeMapView} title='NativeMapView' hideNavBar />
        </Scene>
 

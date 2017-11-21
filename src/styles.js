@@ -37,6 +37,23 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: '#C46D3B'
   },
+  venueHeaderView: {
+    padding:10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  venueHeaderText: {
+    paddingBottom:10,
+    fontSize: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  venueDecriptionText: {
+    padding:5,
+    fontSize: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   shadow: {
     shadowColor: '#000',
     shadowOffset: { width: 0, height:4 },
