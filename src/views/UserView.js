@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { ActivityIndicator, Text, View, Image, StyleSheet } from 'react-native'
 import { Button } from 'react-native-elements'
 import { Actions } from 'react-native-router-flux'
+import { API_DOWSER } from 'react-native-dotenv'
 // STYLESHEET //
 import style from '../styles'
 
@@ -20,7 +21,7 @@ class UserView extends Component {
         </View>
       )
     }
-
+    console.log('props in user', this.props)
     return (
 
       <View>
@@ -36,7 +37,10 @@ class UserView extends Component {
         </View>
 
         <View>
-          <FavoriteList />
+          <FavoriteList
+            userFavorites={ this.props.userFavorites }
+            getVenueDetails={this.props.getVenueDetails}
+          />
         </View>
 
         <View style={style.buttonView}>
@@ -48,6 +52,7 @@ class UserView extends Component {
   }
 }
 
+<<<<<<< HEAD
 const styles = StyleSheet.create({
   background: {
     flex: 1,
@@ -58,4 +63,6 @@ const styles = StyleSheet.create({
   },
 })
 
+=======
+>>>>>>> f2f8bc0ce70ba0eada5a9e64091b2baac09b3cd8
 export default UserView

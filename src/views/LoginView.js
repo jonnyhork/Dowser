@@ -22,6 +22,15 @@ class LoginView extends Component {
             borderRadius={15}
             onPress={() => this.props.loginWithGoogle()}
             />
+            {/* <Button
+              large
+              icon={{name: 'rocket', type: 'font-awesome'}}
+              title='VenueDetailView'
+              backgroundColor='rgba(15, 124, 237, 0.64)'
+              borderRadius={20}
+              onPress={() => Actions.VenueDetailView()}
+              /> */}
+
         </View>
       </View>
     )

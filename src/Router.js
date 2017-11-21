@@ -5,21 +5,21 @@ import {Scene, Router} from 'react-native-router-flux'
 import LoginView from './views/LoginView'
 import UserView from './views/UserView'
 import NativeMapView from './views/NativeMapView'
+import VenueDetailView from './views/VenueDetailView'
+import ActivityIndicatorView from './views/ActivityIndicatorView'
 
 const RouterComponent = () => {
 
  return (
    <Router>
-     <Scene key="root" hideNavBar >
+     <Scene key="root" >
 
-       <Scene key="auth">
-         <Scene key="LoginView" component={LoginView} hideNavBar initial />
-       </Scene>
+         <Scene key="ActivityIndicatorView" component={ActivityIndicatorView} hideNavBar initial/>
+         <Scene key="LoginView" component={LoginView} hideNavBar />
+         <Scene key='UserView' component={UserView} panHandlers={null} title='Back' hideNavBar />
+         <Scene key='VenueDetailView' component={VenueDetailView} title='Dowser' />
+         <Scene key='NativeMapView' component={NativeMapView} title='Map' hideNavBar />
 
-       <Scene key="main">
-         <Scene key='UserView' component={UserView} title='UserView' hideNavBar />
-         <Scene key='NativeMapView' component={NativeMapView} title='NativeMapView' hideNavBar />
-       </Scene>
 
       </Scene>
    </Router>

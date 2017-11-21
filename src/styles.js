@@ -40,9 +40,36 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     backgroundColor: 'rgba(255, 255, 255, 0)'
   },
+  venueHeaderView: {
+    padding:10,
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+  },
+  venueHeaderText: {
+    paddingBottom:10,
+    fontSize: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  venueDecriptionText: {
+    padding:5,
+    fontSize: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  venueContactView: {
+    width: 450,
+    padding: 5,
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+  },
+  venueContactHeader: {
+    fontSize: 20,
+    padding: 5
+  },
   shadow: {
     shadowColor: '#000',
-    shadowOffset: { width: 0, height:4 },
+    shadowOffset: { width: 4, height: 4 },
     shadowOpacity: 0.2
   },
   searchBar: {

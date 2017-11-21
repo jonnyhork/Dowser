@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   ActivityIndicator,
   Image,
@@ -7,11 +7,16 @@ import {
   StyleSheet,
   Text,
   View
-} from 'react-native';
+} from 'react-native'
 import {Actions} from 'react-native-router-flux'
 import SafariView from 'react-native-safari-view'
-import { CLIENT_ID, CLIENT_SECRET, API_URL, API_URL_VENUE } from 'react-native-dotenv'
-
+import {
+  CLIENT_ID,
+  CLIENT_SECRET,
+  API_URL,
+  API_URL_VENUE,
+  API_DOWSER
+} from 'react-native-dotenv'
 // Imports all the views from the Router.js //
 import Router from './src/Router'
 
@@ -38,7 +43,6 @@ export default class App extends Component {
     })
 
     await navigator.geolocation.getCurrentPosition( position => {
-      // console.log('position****', position.coords)
       const latitude = position.coords.latitude
       const longitude = position.coords.longitude
 
@@ -47,8 +51,7 @@ export default class App extends Component {
         longitude,
       })
       console.log("***this state:",this.state)
-      // console.log(this.state.mapBoxLocation)
-      Actions.LoginView({loginWithGoogle: this.loginWithGoogle.bind(this)})
+      Actions.LoginView({ loginWithGoogle: this.loginWithGoogle.bind(this) })
     })
 
   }
@@ -57,10 +60,10 @@ export default class App extends Component {
     this.setState({
       loading: true
     })
-    this.openURL('https://dowser-api.herokuapp.com/auth/google')
+    this.openURL(`${API_DOWSER}/auth/google`)
   }
 
-  // THIS IS WERE APP STATE IS SENT TO UserView //
+  // THIS IS WHERE APP STATE IS SENT TO UserView //
   handleOpenURL = async ({ url }) => {
     // Extract stringified user string out of the URL
     const [, user_string] = url.match(/user=([^#]+)/)
@@ -70,14 +73,16 @@ export default class App extends Component {
       currentuser: JSON.parse(decodeURI(user_string)),
       loading: false
     }, () => {
-      // Send oAuth response to UserView a props
+      // Send oAuth response to UserView as props
       Actions.UserView({
         currentuser: this.state.currentuser,
+        userFavorites: this.state.currentuser.favorites,
         callFourSquareAPI: this.callFourSquareAPI.bind(this),
+        getVenueDetails: this.getVenueDetails.bind(this),
+        addToFavorites: this.addToFavorites.bind(this),
         appState: this.state
       })
     })
-    // console.log('currentuser in appjs: ', this.state.currentuser)
     if (Platform.OS === 'ios') {
       SafariView.dismiss()
     }
@@ -106,7 +111,6 @@ export default class App extends Component {
 
     const response = await fetch(`${API_URL}?v=20171114&query=${searchTerm}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&ll=${lat},${lng}&limit=50`)
     const json = await response.json()
-    // console.log('this is the json response:', json)
     const jsonArr = json.response.group.results
 
     this.extractInfoFromFoursquareApi(jsonArr)
@@ -141,32 +145,56 @@ export default class App extends Component {
         latitude: this.state.latitude,
         longitude: this.state.longitude,
         toScale,
-        getVenueDetails: this.getVenueDetails.bind(this)
+        getVenueDetails: this.getVenueDetails.bind(this),
       })
     )
-    // console.log(`this.STATE SEARCH RESULTS in APP.js`, this.state.searchResults)
   }
 
   async getVenueDetails(venueId) {
     const response = await fetch(`${API_URL_VENUE}/${venueId}?v=20171114&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)
     const json = await response.json()
     const venueDetails = {
+      name: json.response.venue.name,
       id: json.response.venue.id,
-      photo: `${json.response.venue.bestPhoto.prefix}original${json.response.venue.bestPhoto.suffix}`,
-      description: json.response.venue.description,
-      status: json.response.venue.hours.status,
+      photo: json.response.venue.bestPhoto ? `${json.response.venue.bestPhoto.prefix}original${json.response.venue.bestPhoto.suffix}` : null,
+      description: json.response.venue.description ? json.response.venue.description : null,
+      status: json.response.venue.hours ? json.response.venue.hours.status : null,
       address: json.response.venue.location.formattedAddress,
       phone: json.response.venue.contact.formattedPhone,
-      website: json.response.venue.url,
-      delivery: json.response.venue.delivery.url,
+      website: json.response.venue ? json.response.venue.url : null,
+      delivery: json.response.venue.delivery ? json.response.venue.delivery.url : null,
       checkIns: json.response.venue.stats.checkinsCount
     }
-    console.log('these are the venue details: ', venueDetails)
-
-    // Actions.DetailView({ venueDetails })
-
-
+    Actions.VenueDetailView({ venueDetails, addToFavorites: this.addToFavorites.bind(this) })
   }
+
+  async addToFavorites(details) {
+    // add new favorite
+    const favPost = await fetch(`${API_DOWSER}/favorites/add/${this.state.currentuser.googleID}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+       },
+      body: JSON.stringify({
+        name: details.name,
+        venueId: details.id
+      })
+    })
+    // get favorites array back from db
+    const updatedFavorites = await favPost.json()
+    console.log('response from post to favorites', updatedFavorites)
+    // update favorites in state and redirect to user view
+    this.setState({
+      userFavorites: updatedFavorites
+    }, () => {
+      Actions.UserView({
+        userFavorites: this.state.userFavorites,
+        currentuser: this.state.currentuser,
+        getVenueDetails: this.getVenueDetails.bind(this)
+      })
+    })
+  }
+
 
   render() {
     console.disableYellowBox = true
