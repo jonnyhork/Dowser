@@ -52,7 +52,6 @@ class UserView extends Component {
   }
 }
 
-<<<<<<< HEAD
 const styles = StyleSheet.create({
   background: {
     flex: 1,
@@ -63,6 +62,4 @@ const styles = StyleSheet.create({
   },
 })
 
-=======
->>>>>>> f2f8bc0ce70ba0eada5a9e64091b2baac09b3cd8
 export default UserView
