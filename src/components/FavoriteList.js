@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-import { Text, View, FlatList } from 'react-native'
+import { Text, View, FlatList, ScrollView } from 'react-native'
 import style from '../styles'
 import { List, ListItem } from 'react-native-elements'
-
-// COMPONENTS //
-import FavoriteItem from './FavoriteItem'
 
 
 class FavoriteList extends Component {
@@ -13,7 +10,7 @@ class FavoriteList extends Component {
   render() {
     console.log('props in favs', this.props)
     return (
-      <View>
+      <ScrollView>
         <FlatList data={this.props.userFavorites} renderItem={ ({item}) =>
           <ListItem
             key={ item.venueId }
@@ -21,7 +18,7 @@ class FavoriteList extends Component {
             onPress={ () => this.props.getVenueDetails(item.venueId) }
           />}
         />
-      </View>
+      </ScrollView>
     )
   }
 }
