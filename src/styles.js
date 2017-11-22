@@ -35,10 +35,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   userNameText: {
-    fontSize: 25,
+    fontSize: 30,
     color: 'rgb(255,255,255)',
     paddingTop: 10,
-    backgroundColor: 'rgba(255, 255, 255, 0)'
+    backgroundColor: 'rgba(255, 255, 255, 0)',
+    fontFamily: 'Avenir Next'
   },
   venueHeaderView: {
     padding:10,
@@ -52,7 +53,8 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
     // justifyContent: 'center',
     backgroundColor: 'rgba(255,255,255,0)',
-    color: 'rgba(255,255,255,1)'
+    color: 'rgba(0,0,0,0.7)',
+    fontFamily: 'Avenir Next'
   },
   venueDecriptionText: {
     padding:5,
@@ -60,7 +62,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'rgba(255,255,255,0)',
-    color: '#000'
+    color: '#000',
+    fontFamily: 'Avenir Next'
   },
   venueContactView: {
     width: 450,
@@ -68,10 +71,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,0)'
   },
   venueContactHeader: {
-    fontSize: 20,
-    padding: 5,
+    fontSize: 24,
     backgroundColor: 'rgba(255,255,255,0)',
-    color: 'rgba(255,255,255,1)'
+    color: 'rgba(255,255,255,1)',
+    fontFamily: 'Avenir Next',
+    shadowColor: '#000',
+    shadowOffset: { width: 4, height: 4 },
+    shadowOpacity: 0.2
+
   },
   shadow: {
     shadowColor: '#000',

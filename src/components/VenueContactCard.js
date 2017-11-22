@@ -14,16 +14,16 @@ class VenueContactCard extends Component {
 
           <View>
             <Text style={style.venueContactHeader}> Status </Text>
-            <Text>{this.props.venueDetails.status}</Text>
+            <Text style={{color: 'rgba(0,0,0,0.8)', padding: 5}}>{this.props.venueDetails.status}</Text>
           </View>
 
           <View>
             <Text style={style.venueContactHeader}> Address </Text>
-            <Text>{this.props.venueDetails.address[0]}</Text>
+            <Text style={{color: 'rgba(0,0,0,0.8)', padding: 5}}>{this.props.venueDetails.address[0]}</Text>
           </View>
 
           <View>
-            <Text style={{color: 'rgba(0,0,0,1)', paddingBottom: 5}} onPress={() => Linking.openURL(this.props.venueDetails.website)}>{this.props.venueDetails.website}</Text>
+            <Text style={{color: 'rgba(0,0,0,0.6)', padding: 5}} onPress={() => Linking.openURL(this.props.venueDetails.website)}>{this.props.venueDetails.website}</Text>
           </View>
 
         </View>
