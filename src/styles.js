@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
-
+// This is an external stylesheet for the rest of the app, most components will import style from here.
 const styles = StyleSheet.create({
   container: {
     flex: 1,

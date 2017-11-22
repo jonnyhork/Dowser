@@ -3,10 +3,10 @@ import {ActivityIndicator, View, Image, Text } from 'react-native'
 import style from '../styles'
 import { Button } from 'react-native-elements'
 
+// The VenueDetailHeader will display a photo and description if provided by the venue.
 class VenueDetailHeader extends Component {
 
   render () {
-
     return (
       <View style={style.venueHeaderView}>
 
@@ -28,6 +28,5 @@ class VenueDetailHeader extends Component {
   }
 
 }
-
 
 export default VenueDetailHeader

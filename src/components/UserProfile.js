@@ -3,6 +3,7 @@ import {ActivityIndicator, View, Text, Image} from 'react-native'
 import style from '../styles'
 import { Avatar } from 'react-native-elements'
 
+// The userProfile data is imported from the Google oAuth response.
 class UserProfile extends Component {
 
   render() {

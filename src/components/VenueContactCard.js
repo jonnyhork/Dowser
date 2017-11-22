@@ -3,10 +3,10 @@ import { ActivityIndicator, View, Image, Linking, Text } from 'react-native'
 import style from '../styles'
 import { Button } from 'react-native-elements'
 
+// The Contact card will contain info (name, address, website..) from the /venues endpoint if provided.
 class VenueContactCard extends Component {
 
   render () {
-
     return (
       <View style={style.venueContactView}>
         <View>
@@ -39,8 +39,6 @@ class VenueContactCard extends Component {
       </View>
     )
   }
-
 }
-
 
 export default VenueContactCard

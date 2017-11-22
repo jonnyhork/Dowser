@@ -3,6 +3,7 @@ import { View, StyleSheet, Image } from 'react-native'
 import { Button } from 'react-native-elements'
 import style from '../styles'
 
+// The logo is rendered as an image to the screen.
 const Logo = () => {
 
   return (
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
     height: 671,
     width: 380
 
-  },
+  }
 })
 
 export default Logo

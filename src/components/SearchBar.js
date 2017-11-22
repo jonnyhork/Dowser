@@ -3,7 +3,6 @@ import { Text, View, TextInput, StyleSheet } from 'react-native'
 import style from '../styles'
 import { SearchBar, Button } from 'react-native-elements'
 
-
 class Search_Bar extends Component {
 
   constructor(props) {
