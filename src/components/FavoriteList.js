@@ -14,7 +14,7 @@ class FavoriteList extends Component {
         </Text>
 
         <ScrollView>
-          <FlatList style={styles.listContainer} data={this.props.userFavorites} renderItem={({item}) => <ListItem key={item.venueId} title={item.name} onPress={() => this.props.getVenueDetails(item.venueId)}/>}/>
+          <FlatList style={styles.listContainer} data={this.props.userFavorites} renderItem={({item}) => <ListItem style={styles.listItem} key={item.venueId} title={item.name} onPress={() => this.props.getVenueDetails(item.venueId)}/>}/>
         </ScrollView>
       </View>
     )
@@ -30,8 +30,9 @@ const styles = StyleSheet.create({
     marginLeft: 70,
     marginBottom: 10,
     color: 'rgba(255, 255, 255, 1)',
-    fontSize: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0)'
+    fontSize: 22,
+    backgroundColor: 'rgba(255, 255, 255, 0)',
+    fontFamily: 'Avenir Next'
   },
   listContainer: {
     marginRight: 50,
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     marginTop: 0
   },
   listItem: {
-    borderBottomWidth: 0
+    borderBottomWidth: 0,
   }
 })
 

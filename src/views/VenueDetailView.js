@@ -21,7 +21,7 @@ class VenueDetailView extends Component {
 
     return (
       <View>
-        <Image source={require('../../assets/background.png')} style={style.background}/>
+        <Image source={require('../../assets/venueView.png')} style={style.background}/>
 
         <ScrollView>
 
@@ -31,7 +31,7 @@ class VenueDetailView extends Component {
           <Button large icon={{
             name: 'rocket',
             type: 'font-awesome'
-          }} title='Add to Favorites' buttonStyle={styles.favoriteButton} backgroundColor='rgba(117,206,182,0.8)' borderRadius={20} onPress={() => this.props.addToFavorites(this.props.venueDetails)}/>
+          }} title='Add to Favorites' buttonStyle={styles.favoriteButton} backgroundColor='rgba(117,206,182,0.5)' borderRadius={20} onPress={() => this.props.addToFavorites(this.props.venueDetails)}/>
 
         </ScrollView>
       </View>

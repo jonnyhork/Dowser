@@ -11,15 +11,17 @@ class VenueDetailHeader extends Component {
     return (
       <View style={style.venueHeaderView}>
 
-        <View>
-          <Text style={style.venueHeaderText} >{this.props.venueDetails.name}</Text>
-        </View>
+
 
         <View style={style.shadow}>
           <Image
-            style={{width: 350, height: 250, padding: 0}}
+            style={{width: 350, height: 250}}
             source={{uri: this.props.venueDetails.photo}}
             />
+
+            <View>
+              <Text style={style.venueHeaderText} >{this.props.venueDetails.name}</Text>
+            </View>
 
           <Text style={style.venueDecriptionText}>{this.props.venueDetails.description}</Text>
         </View>
