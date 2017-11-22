@@ -44,7 +44,7 @@ export default class NativeMapView extends Component {
                 <View style={{
                   height: (i.checkinCount/this.props.toScale),
                   width: (i.checkinCount/this.props.toScale),
-                  borderWidth: 2,
+                  borderWidth: 3,
                   borderColor: `#${i.ratingColor}`,
                   borderRadius: ((i.checkinCount/this.props.toScale)/2),
                   overflow: 'hidden',
@@ -52,7 +52,7 @@ export default class NativeMapView extends Component {
                 }} />
                 <MapView.Callout>
                   <View style={ style.callOutStyleView }>
-                    <Text>{i.name}</Text>
+                    <Text style={{ padding: 2 }}>{i.name}</Text>
                     <Icon
                         name='info-circle'
                         type='font-awesome'

@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
     width: 380
   },
   callOutStyleView: {
+    width: 120,
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center'
