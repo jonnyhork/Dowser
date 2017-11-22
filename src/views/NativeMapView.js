@@ -3,7 +3,7 @@ import { Text, View, StyleSheet } from 'react-native'
 import style from '../styles'
 import { Actions } from 'react-native-router-flux'
 import MapView from 'react-native-maps'
-import { Button } from 'react-native-elements'
+import { Icon } from 'react-native-elements'
 
 // `#${i.ratingColor}`
 
@@ -38,7 +38,6 @@ export default class NativeMapView extends Component {
                   latitude: i.location[0],
                   longitude: i.location[1],
                 }}
-                title={ i.name }
                 onCalloutPress={ () => this.props.getVenueDetails(i.venueId) }
                 onPress={ () => console.log(i.venueId) }>
 
@@ -51,7 +50,16 @@ export default class NativeMapView extends Component {
                   overflow: 'hidden',
                   backgroundColor: 'rgba(0, 217, 255, 0.38)'
                 }} />
-
+                <MapView.Callout>
+                  <View style={ style.callOutStyleView }>
+                    <Text>{i.name}</Text>
+                    <Icon
+                        name='info-circle'
+                        type='font-awesome'
+                        color='#1f669f'
+                      />
+                  </View>
+                </MapView.Callout>
               </MapView.Marker>
             ))
           }
@@ -60,6 +68,12 @@ export default class NativeMapView extends Component {
     )
   }
 }
+
+// <Icon
+//     name='info'
+//     type='font-awesome'
+//     color='#517fa4'
+//   />
 
 const styles = StyleSheet.create({
   marker: {

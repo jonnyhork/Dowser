@@ -11,13 +11,7 @@ class VenueDetailView extends Component {
 
   render() {
     console.log('props in venue detail view', this.props)
-    // if (this.props.currentuser === undefined) {
-    //   return (
-    //     <View>
-    //       <ActivityIndicator />
-    //     </View>
-    //   )
-    // }
+    
 
     return (
       <View>

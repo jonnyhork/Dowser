@@ -92,6 +92,11 @@ const styles = StyleSheet.create({
     height: 671,
     width: 380
   },
+  callOutStyleView: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center'
+  }
 })
 
 export default styles
