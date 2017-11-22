@@ -7,23 +7,32 @@ class VenueContactCard extends Component {
 
   render () {
 
-    console.log('card', this.props.venueDetails)
     return (
       <View style={style.venueContactView}>
         <View>
 
           <View>
             <Text style={style.venueContactHeader}> Status </Text>
-            <Text style={{color: 'rgba(0,0,0,0.8)', padding: 5}}>{this.props.venueDetails.status}</Text>
+            <Text
+              style={{color: 'rgba(0,0,0,0.8)', padding: 5}}>
+              {this.props.venueDetails.status}
+            </Text>
           </View>
 
           <View>
             <Text style={style.venueContactHeader}> Address </Text>
-            <Text style={{color: 'rgba(0,0,0,0.8)', padding: 5}}>{this.props.venueDetails.address[0]}</Text>
+            <Text
+              style={{color: 'rgba(0,0,0,0.8)', padding: 5}}>
+              {this.props.venueDetails.address[0]}
+            </Text>
           </View>
 
           <View>
-            <Text style={{color: 'rgba(0,0,0,0.6)', padding: 5}} onPress={() => Linking.openURL(this.props.venueDetails.website)}>{this.props.venueDetails.website}</Text>
+            <Text
+              style={{color: 'rgba(0,0,0,0.6)', padding: 5}}
+              onPress={() => Linking.openURL(this.props.venueDetails.website)}>
+              {this.props.venueDetails.website}
+            </Text>
           </View>
 
         </View>

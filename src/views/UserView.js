@@ -21,7 +21,7 @@ class UserView extends Component {
         </View>
       )
     }
-    console.log('props in user', this.props)
+
     return (
 
       <View>

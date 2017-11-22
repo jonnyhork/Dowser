@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React from 'react'
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
   logoText: {
     fontSize: 50,
     color: 'rgb(255,255,255)',
-    // fontFamily: 'Quicksand-Light'
   },
   taglineText: {
     color: 'rgb(255,255,255)'
@@ -44,14 +43,11 @@ const styles = StyleSheet.create({
   venueHeaderView: {
     padding:10,
     alignItems: 'center',
-    // justifyContent: 'center',
     backgroundColor: 'rgba(255,255,255,0)',
   },
   venueHeaderText: {
     paddingBottom:10,
     fontSize: 30,
-    // alignItems: 'center',
-    // justifyContent: 'center',
     backgroundColor: 'rgba(255,255,255,0)',
     color: 'rgba(0,0,0,0.7)',
     fontFamily: 'Avenir Next'
@@ -78,7 +74,6 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: { width: 4, height: 4 },
     shadowOpacity: 0.2
-
   },
   shadow: {
     shadowColor: '#000',

@@ -11,9 +11,7 @@ export default class NativeMapView extends Component {
 
 
   render() {
-    console.log('searchResults in map', this.props.searchResults)
-    console.log('mapview props', this.props)
-    // console.log("User location mapview props", this.props.userLocation)
+
     return (
 
       <View style={styles.mapContainer}>
@@ -32,48 +30,41 @@ export default class NativeMapView extends Component {
 
             {
               this.props.searchResults.map( i => (
-              <MapView.Marker
-                key={i.location[0]}
-                coordinate={{
-                  latitude: i.location[0],
-                  longitude: i.location[1],
-                }}
-                onCalloutPress={ () => this.props.getVenueDetails(i.venueId) }
-                onPress={ () => console.log(i.venueId) }>
+                <MapView.Marker
+                  key={i.location[0]}
+                  coordinate={{
+                    latitude: i.location[0],
+                    longitude: i.location[1],
+                  }}
+                  onCalloutPress={ () => this.props.getVenueDetails(i.venueId) } >
 
-                <View style={{
-                  height: (i.checkinCount/this.props.toScale),
-                  width: (i.checkinCount/this.props.toScale),
-                  borderWidth: 3,
-                  borderColor: `#${i.ratingColor}`,
-                  borderRadius: ((i.checkinCount/this.props.toScale)/2),
-                  overflow: 'hidden',
-                  backgroundColor: 'rgba(0, 217, 255, 0.38)'
-                }} />
-                <MapView.Callout>
-                  <View style={ style.callOutStyleView }>
-                    <Text style={{ padding: 2 }}>{i.name}</Text>
-                    <Icon
-                        name='info-circle'
-                        type='font-awesome'
-                        color='#1f669f'
-                      />
-                  </View>
-                </MapView.Callout>
-              </MapView.Marker>
-            ))
-          }
+                  <View style={{
+                    height: (i.checkinCount/this.props.toScale),
+                    width: (i.checkinCount/this.props.toScale),
+                    borderWidth: 3,
+                    borderColor: `#${i.ratingColor}`,
+                    borderRadius: ((i.checkinCount/this.props.toScale)/2),
+                    overflow: 'hidden',
+                    backgroundColor: 'rgba(0, 217, 255, 0.38)'
+                  }} />
+                  <MapView.Callout>
+                    <View style={ style.callOutStyleView }>
+                      <Text style={{ padding: 2 }}>{i.name}</Text>
+                      <Icon
+                          name='info-circle'
+                          type='font-awesome'
+                          color='#1f669f'
+                        />
+                    </View>
+                  </MapView.Callout>
+                </MapView.Marker>
+              ))
+            }
         </MapView>
       </View>
     )
   }
 }
-
-// <Icon
-//     name='info'
-//     type='font-awesome'
-//     color='#517fa4'
-//   />
 
 const styles = StyleSheet.create({
   marker: {

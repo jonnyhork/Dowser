@@ -12,15 +12,11 @@ class Search_Bar extends Component {
       searchTerm: ''
     }
   }
-
   onSearchInputChange(searchTerm) {
-    // console.log("Search term is:", this.state.searchTerm)
     this.setState({
       searchTerm
     })
-
   }
-
   submitSearch() {
     this.props.callFourSquareAPI(this.state.searchTerm)
   }
@@ -41,7 +37,6 @@ class Search_Bar extends Component {
           borderRadius={15}
           backgroundColor={'rgba(117,206,182,0.8)'}
           title={'search'}
-          // icon={{name: 'search'}}
           onPress= { () => this.submitSearch() } />
       </View>
     )

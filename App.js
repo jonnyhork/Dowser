@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {
   ActivityIndicator,
-  Image,
   Linking,
   Platform,
   StyleSheet,
@@ -50,7 +49,6 @@ export default class App extends Component {
         latitude,
         longitude,
       })
-      console.log("***this state:",this.state)
       Actions.LoginView({ loginWithGoogle: this.loginWithGoogle.bind(this) })
     })
 
@@ -104,8 +102,7 @@ export default class App extends Component {
   }
 
   async callFourSquareAPI (searchTerm = `coffee`) {
-    console.log('the searchTerm before the API call is:', searchTerm)
-    // ll=${lat},${lng}
+
     const lat = this.state.latitude
     const lng = this.state.longitude
 
@@ -166,7 +163,10 @@ export default class App extends Component {
       delivery: json.response.venue.delivery ? json.response.venue.delivery.url : null,
       checkIns: json.response.venue.stats.checkinsCount
     }
-    Actions.VenueDetailView({ venueDetails, addToFavorites: this.addToFavorites.bind(this) })
+    Actions.VenueDetailView({
+      venueDetails,
+      addToFavorites: this.addToFavorites.bind(this)
+    })
   }
 
   async addToFavorites(details) {
@@ -183,7 +183,6 @@ export default class App extends Component {
     })
     // get favorites array back from db
     const updatedFavorites = await favPost.json()
-    console.log('response from post to favorites', updatedFavorites)
     // update favorites in state and redirect to user view
     this.setState({
       userFavorites: updatedFavorites
@@ -195,7 +194,6 @@ export default class App extends Component {
       })
     })
   }
-
 
   render() {
     console.disableYellowBox = true

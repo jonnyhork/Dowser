@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Scene, Router} from 'react-native-router-flux'
+import { Scene, Router } from 'react-native-router-flux'
 
 // VIEWS //
 import LoginView from './views/LoginView'
@@ -10,19 +10,43 @@ import ActivityIndicatorView from './views/ActivityIndicatorView'
 
 class RouterComponent extends Component {
 
-
 render() {
  return (
-   <Router>
+    <Router>
      <Scene key="root" >
-         <Scene key="ActivityIndicatorView" component={ActivityIndicatorView} hideNavBar initial/>
-         <Scene key="LoginView" component={LoginView} hideNavBar />
-         <Scene key='UserView' component={UserView} panHandlers={null} title='Back' hideNavBar />
-         <Scene key='VenueDetailView' component={VenueDetailView} title='' navigationBarStyle={{backgroundColor: 'rgba(255, 255, 255, 1)'}} />
-         <Scene key='NativeMapView' component={NativeMapView} title={this.props.searchTerm} navigationBarStyle={{backgroundColor: 'rgba(117,206,182,1)'}} />
+       <Scene
+         key="ActivityIndicatorView"
+         component={ActivityIndicatorView}
+         hideNavBar
+         initial
+         />
+       <Scene
+         key="LoginView"
+         component={LoginView}
+         hideNavBar
+         />
+       <Scene
+         key='UserView'
+         component={UserView}
+         panHandlers={null}
+         title='Back'
+         hideNavBar
+         />
+       <Scene
+         key='VenueDetailView'
+         component={VenueDetailView}
+         title=''
+         navigationBarStyle={{backgroundColor: 'rgba(255, 255, 255, 1)'}}
+         />
+       <Scene
+         key='NativeMapView'
+         component={NativeMapView}
+         title={this.props.searchTerm}
+         navigationBarStyle={{backgroundColor: 'rgba(117,206,182,1)'}}
+         />
       </Scene>
-   </Router>
- )
+    </Router>
+  )
 }
 
 }

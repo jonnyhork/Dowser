@@ -1,20 +1,30 @@
-import React, {Component} from 'react'
-import {Text, View, FlatList, ScrollView, StyleSheet} from 'react-native'
+import React, { Component } from 'react'
+import { Text, View, FlatList, ScrollView, StyleSheet } from 'react-native'
 import style from '../styles'
-import {List, ListItem} from 'react-native-elements'
+import { List, ListItem } from 'react-native-elements'
 
 class FavoriteList extends Component {
 
   render() {
-    console.log('props in favs', this.props)
+
     return (
       <View style={styles.list}>
         <Text style={styles.favorites}>
           Your Favorites
         </Text>
-
         <ScrollView>
-          <FlatList style={styles.listContainer} data={this.props.userFavorites} renderItem={({item}) => <ListItem style={styles.listItem} key={item.venueId} title={item.name} onPress={() => this.props.getVenueDetails(item.venueId)}/>}/>
+          <FlatList
+            style={styles.listContainer}
+            data={this.props.userFavorites}
+            renderItem={ ({item}) =>
+              <ListItem
+                style={styles.listItem}
+                key={item.venueId}
+                title={item.name}
+                onPress={ () => this.props.getVenueDetails(item.venueId) }
+              />
+            }
+          />
         </ScrollView>
       </View>
     )
