@@ -7,7 +7,7 @@ import {
   Text,
   View
 } from 'react-native'
-import {Actions} from 'react-native-router-flux'
+import { Actions } from 'react-native-router-flux'
 import SafariView from 'react-native-safari-view'
 import {
   CLIENT_ID,
@@ -16,7 +16,7 @@ import {
   API_URL_VENUE,
   API_DOWSER
 } from 'react-native-dotenv'
-// Imports all the views from the Router.js //
+// Imports all the views from the Router.js
 import Router from './src/Router'
 
 export default class App extends Component {
@@ -40,7 +40,7 @@ export default class App extends Component {
         this.handleOpenURL({ url })
       }
     })
-
+    // Get the current location of the user's device
     await navigator.geolocation.getCurrentPosition( position => {
       const latitude = position.coords.latitude
       const longitude = position.coords.longitude
@@ -61,7 +61,7 @@ export default class App extends Component {
     this.openURL(`${API_DOWSER}/auth/google`)
   }
 
-  // THIS IS WHERE APP STATE IS SENT TO UserView //
+  // This is where APP STATE is sent to UserView
   handleOpenURL = async ({ url }) => {
     // Extract stringified user string out of the URL
     const [, user_string] = url.match(/user=([^#]+)/)
@@ -100,7 +100,7 @@ export default class App extends Component {
     //   Linking.openURL(url)
     // }
   }
-
+  // Makes a fetch call to the Foursquare search/recommendations endpoint
   async callFourSquareAPI (searchTerm = `coffee`) {
 
     const lat = this.state.latitude
@@ -109,10 +109,10 @@ export default class App extends Component {
     const response = await fetch(`${API_URL}?v=20171114&query=${searchTerm}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&ll=${lat},${lng}&limit=50`)
     const json = await response.json()
     const jsonArr = json.response.group.results
-
+    // send the response to:
     this.extractInfoFromFoursquareApi(jsonArr, searchTerm)
   }
-
+  // Parse out and format the information we want from the API response, pass the searchTearm as a prop for the navBar
   extractInfoFromFoursquareApi (jsonArr, searchTerm) {
 
     const searchResults = jsonArr.map( item => {
@@ -131,7 +131,7 @@ export default class App extends Component {
         venueId
       }
     })
-
+    // Determine the appropiate quotient used to normalize the the radius of the map markers based on check-ins
     const checkinsArr = jsonArr.map( item => Number(item.venue.stats.checkinsCount) )
     const toScale = (Math.max(...checkinsArr)*0.014)
 
@@ -147,7 +147,8 @@ export default class App extends Component {
       })
     )
   }
-
+  // Make a fetch call to the Foursquare /venues endpoint to get details of a specific venue, parse out the information.
+  // Venue details are only available if they are provided by the venue to Foursquare.
   async getVenueDetails(venueId) {
     const response = await fetch(`${API_URL_VENUE}/${venueId}?v=20171114&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)
     const json = await response.json()
@@ -170,7 +171,7 @@ export default class App extends Component {
   }
 
   async addToFavorites(details) {
-    // add new favorite
+    // Add new favorite to our Mongo DB hosted on Heroku and Mlab.
     const favPost = await fetch(`${API_DOWSER}/favorites/add/${this.state.currentuser.googleID}`, {
       method: 'POST',
       headers: {
@@ -181,9 +182,9 @@ export default class App extends Component {
         venueId: details.id
       })
     })
-    // get favorites array back from db
+    // Get favorites array back from db.
     const updatedFavorites = await favPost.json()
-    // update favorites in state and redirect to user view
+    // Update favorites in state and redirect to user view.
     this.setState({
       userFavorites: updatedFavorites
     }, () => {

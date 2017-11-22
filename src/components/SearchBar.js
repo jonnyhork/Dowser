@@ -31,7 +31,7 @@ class Search_Bar extends Component {
           round
           lightTheme={true}
           onChangeText={ text => this.onSearchInputChange(text)}
-          placeholder='ex. coffee...' />
+          placeholder='coffee...' />
         <Button
           buttonStyle={styles.searchButton}
           borderRadius={15}
