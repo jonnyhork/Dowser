@@ -21,13 +21,13 @@ export default class NativeMapView extends Component {
         <MapView
           style={styles.map}
           showsUserLocation
-          showsCompass
+          showsCompass={true}
           showsPointsOfInterest={false}
           initialRegion={{
             latitude: this.props.latitude,
             longitude: this.props.longitude,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+            latitudeDelta: 0.0122,
+            longitudeDelta: 0.0121,
           }}>
 
             {
